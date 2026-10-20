@@ -7,6 +7,10 @@
 
 <HeroSection />
 
+@if (Site.HasSection("gallery"))
+{
+    <GallerySection />
+}
 @if (Site.HasSection("about"))
 {
     <AboutSection />
@@ -18,10 +22,6 @@
 @if (Site.HasSection("experience"))
 {
     <ExperienceSection />
-}
-@if (Site.HasSection("projects"))
-{
-    <ProjectsSection />
 }
 <ContactSection />
 
@@ -43,7 +43,7 @@
             return;
         }
 
-        // Deep links such as /#projects: the sections only exist after the first render.
+        // Deep links such as /#gallery: the sections only exist after the first render.
         var fragment = new Uri(Navigation.Uri).Fragment.TrimStart('#');
         if (!string.IsNullOrWhiteSpace(fragment))
         {

@@ -112,10 +112,10 @@ public sealed class SiteState(HttpClient http, IJSRuntime js)
     private static List<string> BuildNavSections(PortfolioData data)
     {
         var sections = new List<string>();
+        if (data.Gallery.Count > 0) sections.Add("gallery");
         if (data.About.Paragraphs.Count > 0 || data.About.Facts.Count > 0 || data.About.Stats.Count > 0) sections.Add("about");
         if (data.SkillGroups.Count > 0 || data.Toolbox.Count > 0) sections.Add("skills");
         if (data.Experience.Count > 0 || data.Education.Count > 0) sections.Add("experience");
-        if (data.Projects.Count > 0) sections.Add("projects");
         sections.Add("contact");
         return sections;
     }

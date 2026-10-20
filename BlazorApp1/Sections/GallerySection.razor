@@ -1,0 +1,97 @@
+@inherits SiteComponentBase
+
+<section id="gallery" class="section" data-nav-section>
+    <div class="container">
+        <SectionHeading Index="@Site.SectionNumber("gallery")" Eyebrow="@L("nav.gallery")" Title="@L("gallery.title")" Subtitle="@L("gallery.subtitle")" />
+
+        @if (Categories.Count > 1)
+        {
+            <div class="filter-bar reveal" role="group" aria-label="@L("gallery.filter")">
+                <button type="button" class="filter-chip @(filter is null ? "is-active" : null)"
+                        aria-pressed="@(filter is null ? "true" : "false")" @onclick="() => SetFilter(null)">
+                    @L("gallery.all") <span class="filter-count">@Data.Gallery.Count</span>
+                </button>
+                @foreach (var category in Categories)
+                {
+                    var key = category.Key;
+                    var count = Data.Gallery.Count(p => string.Equals(CategoryKey(p.Category), key, StringComparison.OrdinalIgnoreCase));
+                    <button type="button" class="filter-chip @(filter == key ? "is-active" : null)"
+                            aria-pressed="@(filter == key ? "true" : "false")" @onclick="() => SetFilter(key)">
+                        @T(category.Text) <span class="filter-count">@count</span>
+                    </button>
+                }
+            </div>
+        }
+
+        <div class="gallery-grid">
+            @{ var position = 0; }
+            @foreach (var photo in visiblePhotos)
+            {
+                var index = position;
+                <button type="button" class="gallery-item reveal @(photo.Featured ? "is-featured" : null)"
+                        style="--delay: @(Math.Min(position, 8) * 70)ms" @key="photo"
+                        @onclick="() => Open(index)" aria-label="@PhotoLabel(photo)">
+                    @if (!string.IsNullOrWhiteSpace(photo.Display))
+                    {
+                        <img src="@photo.Display" alt="@T(photo.Title)" loading="lazy" decoding="async" />
+                    }
+                    else
+                    {
+                        <span class="gallery-placeholder" aria-hidden="true"><Icon Name="image" Size="34" StrokeWidth="1.4" /></span>
+                    }
+                    <span class="gallery-overlay" aria-hidden="true">
+                        <span class="gallery-zoom"><Icon Name="maximize" Size="18" /></span>
+                        <span class="gallery-caption">
+                            @if (!photo.Title.IsEmpty)
+                            {
+                                <span class="gallery-title">@T(photo.Title)</span>
+                            }
+                            @if (!photo.Category.IsEmpty)
+                            {
+                                <span class="gallery-cat">@T(photo.Category)</span>
+                            }
+                        </span>
+                    </span>
+                </button>
+                position++;
+            }
+        </div>
+    </div>
+
+    <Lightbox Photos="visiblePhotos" Index="lightboxIndex" OnClose="Close" OnNavigate="Navigate" />
+</section>
+
+@code {
+    private string? filter;
+    private int? lightboxIndex;
+    private List<Photo> visiblePhotos = [];
+
+    protected override void OnParametersSet() => visiblePhotos = Filtered();
+
+    private static string CategoryKey(LocalizedText category) => category.Get(LocalizedText.FallbackLanguage).Trim();
+
+    private List<(LocalizedText Text, string Key)> Categories => Data.Gallery
+        .Where(p => !p.Category.IsEmpty)
+        .Select(p => (Text: p.Category, Key: CategoryKey(p.Category)))
+        .DistinctBy(c => c.Key, StringComparer.OrdinalIgnoreCase)
+        .ToList();
+
+    private List<Photo> Filtered() => Data.Gallery
+        .Where(p => filter is null || string.Equals(CategoryKey(p.Category), filter, StringComparison.OrdinalIgnoreCase))
+        .ToList();
+
+    private string PhotoLabel(Photo photo) => photo.Title.IsEmpty ? L("gallery.view") : $"{L("gallery.view")} – {T(photo.Title)}";
+
+    private void SetFilter(string? key)
+    {
+        filter = key;
+        lightboxIndex = null;
+        visiblePhotos = Filtered();
+    }
+
+    private void Open(int index) => lightboxIndex = index;
+
+    private void Close() => lightboxIndex = null;
+
+    private void Navigate(int index) => lightboxIndex = index;
+}

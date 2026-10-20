@@ -1,289 +1,235 @@
 // =====================================================================================
-//  NỘI DUNG PORTFOLIO — chỉ cần sửa file này, không phải động vào code.
+//  NỘI DUNG PORTFOLIO ẢNH — chỉ cần sửa file này, không phải động vào code.
 //  • Mọi đoạn chữ có thể là "chuỗi" (dùng chung) hoặc { "en": "...", "vi": "..." }.
-//  • Xóa hết phần tử của một mục (ví dụ "projects": []) thì mục đó tự ẩn khỏi trang.
-//  • Các dòng "// TODO" là chỗ bản nháp đang dùng thông tin giả định — hãy thay bằng thông tin thật.
-//  • Lưu ý bảo mật: chỉ đăng tên/hình ảnh dự án khi đã được công ty và khách hàng cho phép.
+//  • Xóa hết phần tử của một mục (ví dụ "gallery": []) thì mục đó tự ẩn khỏi trang.
+//  • Các dòng "// TODO" là chỗ bản nháp đang dùng thông tin/ảnh giả định — hãy thay bằng đồ thật.
+//  • ẢNH: chép ảnh của bạn vào wwwroot/images/gallery/ rồi ghi "image": "images/gallery/ten-anh.jpg".
+//    Ảnh mẫu bên dưới lấy từ picsum.photos (ảnh ngẫu nhiên trên mạng) — chỉ để xem bố cục.
 // =====================================================================================
 {
   "profile": {
-    "name": "Bao Truong", // TODO: có thể đổi thành họ tên đầy đủ có dấu
+    "name": "Bao Truong", // TODO: đổi thành họ tên đầy đủ có dấu, ví dụ "Trương Hoài Bảo"
     "initials": "BT",
     "roles": [
-      { "en": "BIM Modeler", "vi": "BIM Modeler" },
-      { "en": "Revit Specialist", "vi": "Chuyên viên Revit" },
-      { "en": "Clash Detection & Coordination", "vi": "Kiểm tra xung đột & phối hợp" },
-      { "en": "Dynamo Automation", "vi": "Tự động hóa với Dynamo" }
+      { "en": "Photographer", "vi": "Nhiếp ảnh gia" },
+      { "en": "Portraits & Weddings", "vi": "Chân dung & Ảnh cưới" },
+      { "en": "Visual Storyteller", "vi": "Kể chuyện bằng hình ảnh" }
     ],
     "tagline": {
-      "en": "I turn engineering designs into accurate, coordinated 3D models — helping project teams catch issues early and build with confidence.",
-      "vi": "Tôi biến bản vẽ thiết kế thành mô hình 3D chính xác, được phối hợp chặt chẽ — giúp đội ngũ dự án phát hiện vấn đề sớm và thi công tự tin hơn."
+      "en": "I chase soft light and honest moments — making portraits, weddings and quiet everyday scenes feel timeless.",
+      "vi": "Tôi đi tìm thứ ánh sáng dịu dàng và những khoảnh khắc chân thật — để chân dung, ảnh cưới và những điều đời thường trở nên vượt thời gian."
     },
-    "availability": { "en": "BIM Modeler at Arup", "vi": "BIM Modeler tại Arup" },
-    "avatar": "", // TODO: chép ảnh vào wwwroot/images/avatar.jpg rồi ghi "images/avatar.jpg" (để trống sẽ hiện chữ BT)
-    "location": { "en": "Vietnam", "vi": "Việt Nam" }, // TODO: thêm thành phố nếu muốn
+    "availability": { "en": "Booking sessions for 2025", "vi": "Đang nhận lịch chụp 2025" }, // TODO
+    "location": { "en": "Hanoi, Vietnam", "vi": "Hà Nội, Việt Nam" }, // TODO: đổi thành phố của bạn
     "email": "your.email@example.com", // TODO: email cá nhân
     "phone": "", // TODO: để trống sẽ ẩn số điện thoại
-    "cv": "", // TODO: chép CV vào wwwroot/files/cv.pdf rồi ghi "files/cv.pdf" (để trống sẽ ẩn nút Tải CV)
-    "heroBadges": [ "Revit", "Navisworks", "Dynamo", "ISO 19650" ]
+    "cv": "", // để trống sẽ ẩn nút Tải CV (nhiếp ảnh thường không cần)
+    // TODO: chép ảnh bìa (ngang, đẹp) vào wwwroot/images/ rồi ghi "images/ten-anh.jpg".
+    "heroImage": "https://picsum.photos/seed/bao-hero/1920/1280"
   },
 
   "socials": [
-    { "name": "GitHub", "icon": "github", "url": "https://github.com/hoaibaok19-cmd" },
-    { "name": "LinkedIn", "icon": "linkedin", "url": "https://www.linkedin.com/in/your-profile" }, // TODO
+    { "name": "Instagram", "icon": "instagram", "url": "https://instagram.com/your-handle" }, // TODO
+    { "name": "Facebook", "icon": "facebook", "url": "https://facebook.com/your-page" }, // TODO
     { "name": "Email", "icon": "mail", "url": "mailto:your.email@example.com" } // TODO
   ],
 
   "about": {
     "paragraphs": [
       {
-        "en": "Hi! I'm a BIM Modeler with 5 years of experience bringing building and infrastructure projects to life in 3D. I'm currently working at Arup, where I create and maintain coordinated BIM models that architects, engineers and contractors can rely on.",
-        "vi": "Xin chào! Tôi là BIM Modeler với 5 năm kinh nghiệm đưa các dự án công trình và hạ tầng vào không gian 3D. Hiện tôi đang làm việc tại Arup, nơi tôi xây dựng và quản lý những mô hình BIM được phối hợp chặt chẽ — nền tảng đáng tin cậy cho kiến trúc sư, kỹ sư và nhà thầu."
+        "en": "Hi, I'm Bao — a photographer based in Vietnam. For me a good photograph is less about perfect poses and more about a feeling you can return to years later: a glance, a laugh, the last light of the day.",
+        "vi": "Xin chào, tôi là Bảo — một nhiếp ảnh gia sống tại Việt Nam. Với tôi, một bức ảnh đẹp không nằm ở dáng chụp hoàn hảo, mà ở cảm xúc bạn có thể quay về sau nhiều năm: một ánh nhìn, một nụ cười, chút nắng cuối ngày."
       },
       {
-        "en": "My daily toolkit is centred on Autodesk Revit for modelling and documentation, Navisworks for clash detection and model reviews, and Autodesk Construction Cloud for sharing models across the project team. I follow ISO 19650 principles and each project's BIM Execution Plan so that every model stays consistent, well structured and ready for the next stage.",
-        "vi": "Công cụ chính của tôi là Autodesk Revit để dựng mô hình và triển khai hồ sơ, Navisworks để kiểm tra xung đột và rà soát mô hình, cùng Autodesk Construction Cloud để chia sẻ dữ liệu với cả đội dự án. Tôi tuân thủ nguyên tắc ISO 19650 và Kế hoạch thực hiện BIM (BEP) của từng dự án để mọi mô hình luôn nhất quán, có cấu trúc rõ ràng và sẵn sàng cho giai đoạn tiếp theo."
+        "en": "I work mostly with natural light and a calm, documentary approach. Whether it's a couple on their wedding day, a family portrait or a stranger on a busy street, I try to stay out of the way and let real moments unfold.",
+        "vi": "Tôi chủ yếu làm việc với ánh sáng tự nhiên theo lối kể chuyện nhẹ nhàng. Dù là một cặp đôi trong ngày cưới, một bức chân dung gia đình hay một người lạ trên phố đông, tôi luôn cố lùi lại để những khoảnh khắc thật được diễn ra tự nhiên."
       },
       {
-        "en": "I enjoy automating repetitive modelling tasks with Dynamo and exploring how data and code can make BIM workflows faster and smarter — which is also why I built this website myself.",
-        "vi": "Tôi thích tự động hóa những công việc lặp lại bằng Dynamo và tìm hiểu cách dữ liệu, lập trình giúp quy trình BIM nhanh và thông minh hơn — đó cũng là lý do tôi tự xây dựng trang web này."
+        "en": "Off the clock you'll find me scouting for light at sunrise, editing with a coffee in hand, or building small tools — like this very website — to make my craft a little smoother.",
+        "vi": "Khi không cầm máy, tôi thường đi tìm ánh sáng lúc bình minh, ngồi hậu kỳ bên ly cà phê, hoặc tự làm vài công cụ nhỏ — như chính trang web này — để công việc trôi chảy hơn."
       }
     ],
     "facts": [
-      { "icon": "map-pin", "label": { "en": "Based in", "vi": "Sống tại" }, "value": { "en": "Vietnam", "vi": "Việt Nam" } },
-      { "icon": "briefcase", "label": { "en": "Experience", "vi": "Kinh nghiệm" }, "value": { "en": "5 years in BIM", "vi": "5 năm trong lĩnh vực BIM" } },
-      { "icon": "box", "label": { "en": "Currently", "vi": "Hiện tại" }, "value": { "en": "BIM Modeler at Arup", "vi": "BIM Modeler tại Arup" } },
+      { "icon": "map-pin", "label": { "en": "Based in", "vi": "Sống tại" }, "value": { "en": "Hanoi, Vietnam", "vi": "Hà Nội, Việt Nam" } },
+      { "icon": "camera", "label": { "en": "I love shooting", "vi": "Thế mạnh" }, "value": { "en": "Portraits & weddings", "vi": "Chân dung & ảnh cưới" } },
+      { "icon": "clock", "label": { "en": "Behind the lens since", "vi": "Cầm máy từ" }, "value": "2017" }, // TODO
       { "icon": "globe", "label": { "en": "Languages", "vi": "Ngôn ngữ" }, "value": { "en": "Vietnamese, English", "vi": "Tiếng Việt, Tiếng Anh" } }
     ],
     // TODO: thay bằng số liệu thật của bạn
     "stats": [
-      { "value": 5, "suffix": "", "label": { "en": "Years of experience", "vi": "Năm kinh nghiệm" } },
-      { "value": 20, "suffix": "+", "label": { "en": "Projects contributed to", "vi": "Dự án đã tham gia" } },
-      { "value": 1000, "suffix": "+", "label": { "en": "Clashes resolved", "vi": "Xung đột đã xử lý" } },
-      { "value": 30, "suffix": "+", "label": { "en": "Dynamo scripts", "vi": "Script Dynamo" } }
+      { "value": 8, "suffix": "", "label": { "en": "Years behind the camera", "vi": "Năm cầm máy" } },
+      { "value": 120, "suffix": "+", "label": { "en": "Sessions shot", "vi": "Buổi chụp" } },
+      { "value": 45, "suffix": "+", "label": { "en": "Weddings captured", "vi": "Đám cưới đã chụp" } },
+      { "value": 15, "suffix": "K+", "label": { "en": "Photos delivered", "vi": "Ảnh đã trao" } }
     ]
   },
 
-  // "level" từ 0–100 sẽ hiện thanh tiến độ; bỏ "level" thì kỹ năng hiện dạng thẻ (chip).
+  // Dịch vụ — bỏ "level" nên các mục hiện dạng thẻ (chip). Thêm "level": 0–100 nếu muốn thanh tiến độ.
   "skillGroups": [
     {
-      "title": { "en": "BIM Modelling", "vi": "Dựng mô hình BIM" },
-      "icon": "box",
+      "title": { "en": "What I shoot", "vi": "Thể loại tôi chụp" },
+      "icon": "camera",
       "skills": [
-        { "name": "Autodesk Revit", "level": 92 },
-        { "name": "Revit Families & Templates", "level": 85 },
-        { "name": "AutoCAD", "level": 85 },
-        { "name": "Model QA/QC", "level": 80 }
+        { "name": { "en": "Portraits", "vi": "Chân dung" } },
+        { "name": { "en": "Weddings", "vi": "Ảnh cưới" } },
+        { "name": { "en": "Couples & engagement", "vi": "Ảnh đôi & đính hôn" } },
+        { "name": { "en": "Events", "vi": "Sự kiện" } },
+        { "name": { "en": "Street & travel", "vi": "Đời thường & du lịch" } }
       ]
     },
     {
-      "title": { "en": "Coordination", "vi": "Phối hợp mô hình" },
-      "icon": "layers",
+      "title": { "en": "Post-production", "vi": "Hậu kỳ" },
+      "icon": "sliders",
       "skills": [
-        { "name": "Navisworks Manage", "level": 88 },
-        { "name": "Clash Detection", "level": 88 },
-        { "name": "Autodesk Construction Cloud", "level": 80 },
-        { "name": "ISO 19650 & BEP", "level": 75 }
+        { "name": "Adobe Lightroom" },
+        { "name": "Adobe Photoshop" },
+        { "name": "Capture One" },
+        { "name": { "en": "Color grading", "vi": "Chỉnh màu" } },
+        { "name": { "en": "Skin retouching", "vi": "Retouch da" } }
       ]
     },
     {
-      "title": { "en": "Automation & Data", "vi": "Tự động hóa & dữ liệu" },
-      "icon": "cpu",
+      "title": { "en": "Light & studio", "vi": "Ánh sáng & studio" },
+      "icon": "aperture",
       "skills": [
-        { "name": "Dynamo", "level": 78 },
-        { "name": "Python" },
-        { "name": "Revit API" },
-        { "name": "Excel" },
-        { "name": "Power BI" },
-        { "name": "IFC / openBIM" }
+        { "name": { "en": "Natural light", "vi": "Ánh sáng tự nhiên" } },
+        { "name": { "en": "Off-camera flash", "vi": "Đèn rời" } },
+        { "name": { "en": "Studio strobes", "vi": "Đèn studio" } },
+        { "name": { "en": "On-location setups", "vi": "Set up tại hiện trường" } }
       ]
     }
   ],
 
-  "toolbox": [ "BIM 360", "Bluebeam Revu", "Enscape", "Autodesk ReCap", "SketchUp", "Microsoft Teams", "Git", "LOD 300–400", "4D / 5D BIM" ],
+  "toolbox": [ "Sony A7 IV", "35mm f/1.4", "85mm f/1.8", "24–70mm f/2.8", "Godox AD200", "Reflector", "DJI drone", "Peak Design tripod" ], // TODO: liệt kê thiết bị của bạn
 
-  "experience": [
+  // Hồ sơ nghề nghiệp — nhiếp ảnh thường không cần, nên để trống cho ẩn đi.
+  // Muốn hiện dòng thời gian (giải thưởng, triển lãm, khách hàng...) thì thêm phần tử vào đây.
+  "experience": [],
+  "education": [],
+
+  // THƯ VIỆN ẢNH — mỗi ảnh một khối. "featured": true sẽ cho ảnh chiếm ô lớn.
+  // "category" (en) được dùng để gom nhóm bộ lọc — giữ nhất quán: Portrait / Wedding / Street / Landscape / Travel.
+  // TODO: thay toàn bộ ảnh mẫu picsum bên dưới bằng ảnh thật trong wwwroot/images/gallery/.
+  "gallery": [
     {
-      "title": { "en": "BIM Modeler", "vi": "BIM Modeler" },
-      "organization": "Arup",
-      "url": "https://www.arup.com",
-      "period": { "en": "20XX — Present", "vi": "20XX — Hiện tại" }, // TODO: năm bắt đầu
-      "location": { "en": "Vietnam", "vi": "Việt Nam" },
-      "description": {
-        "en": "Developing and maintaining coordinated BIM models for multidisciplinary building and infrastructure projects, working closely with engineers and designers across Arup's global network.",
-        "vi": "Xây dựng và quản lý mô hình BIM phối hợp đa bộ môn cho các dự án công trình và hạ tầng, làm việc chặt chẽ với kỹ sư và nhà thiết kế trong mạng lưới toàn cầu của Arup."
-      },
-      "highlights": [
-        {
-          "en": "Produce detailed Revit models, drawings and schedules that meet each project's LOD requirements.",
-          "vi": "Dựng mô hình Revit chi tiết, triển khai bản vẽ và bảng thống kê đáp ứng yêu cầu LOD của từng dự án."
-        },
-        {
-          "en": "Run clash detection in Navisworks and coordinate resolutions with design teams before every model issue.",
-          "vi": "Chạy kiểm tra xung đột bằng Navisworks và phối hợp xử lý với các bộ môn trước mỗi lần phát hành mô hình."
-        },
-        {
-          "en": "Share and manage models on Autodesk Construction Cloud following ISO 19650 workflows.",
-          "vi": "Chia sẻ và quản lý mô hình trên Autodesk Construction Cloud theo quy trình ISO 19650."
-        },
-        {
-          "en": "Build Dynamo scripts that automate repetitive work such as sheet creation and parameter updates.",
-          "vi": "Viết script Dynamo tự động hóa các công việc lặp lại như tạo sheet và cập nhật thông số."
-        }
-      ],
-      "tags": [ "Revit", "Navisworks", "ACC", "Dynamo", "ISO 19650" ]
+      "id": "morning-portrait",
+      "image": "https://picsum.photos/seed/bao-portrait-1/1200/1500",
+      "thumb": "https://picsum.photos/seed/bao-portrait-1/800/1000",
+      "title": { "en": "Morning Light", "vi": "Nắng sớm" },
+      "category": { "en": "Portrait", "vi": "Chân dung" },
+      "caption": { "en": "A quiet portrait caught in the first warm light by the window.", "vi": "Một khoảnh khắc chân dung tĩnh lặng trong tia nắng ấm đầu ngày bên khung cửa." },
+      "location": { "en": "Hanoi", "vi": "Hà Nội" },
+      "year": "2024"
     },
-    // TODO: thay bằng công ty trước đây của bạn, hoặc xóa cả mục này nếu không có
     {
-      "title": { "en": "BIM Modeler", "vi": "BIM Modeler" },
-      "organization": { "en": "Previous company", "vi": "Công ty trước đây" },
-      "period": "20XX — 20XX",
-      "location": { "en": "Vietnam", "vi": "Việt Nam" },
-      "description": {
-        "en": "Modelled architectural, structural and MEP elements for residential and commercial buildings.",
-        "vi": "Dựng mô hình kiến trúc, kết cấu và MEP cho các công trình nhà ở và thương mại."
-      },
-      "highlights": [
-        {
-          "en": "Created a shared library of parametric Revit families that sped up modelling for the whole team.",
-          "vi": "Xây dựng thư viện family Revit tham số dùng chung, giúp cả nhóm dựng hình nhanh hơn."
-        },
-        {
-          "en": "Prepared shop drawings and quantity take-offs directly from the model.",
-          "vi": "Triển khai bản vẽ shop drawing và bóc tách khối lượng trực tiếp từ mô hình."
-        }
-      ],
-      "tags": [ "Revit", "AutoCAD", "Quantity take-off" ]
-    }
-  ],
-
-  // TODO: điền ngành học, trường và năm; thêm chứng chỉ (ví dụ Autodesk Certified Professional) nếu có
-  "education": [
-    {
-      "title": { "en": "Bachelor's degree in Construction Engineering", "vi": "Kỹ sư Xây dựng" },
-      "organization": { "en": "Your university", "vi": "Trường Đại học của bạn" },
-      "period": "20XX — 20XX",
-      "description": {
-        "en": "Built a strong foundation in structural design, construction technology and technical drawing.",
-        "vi": "Xây dựng nền tảng vững chắc về thiết kế kết cấu, công nghệ thi công và vẽ kỹ thuật."
-      }
-    }
-  ],
-
-  // TODO: các dự án dưới đây là mẫu chung — hãy thay bằng dự án thật mà bạn được phép giới thiệu.
-  //       Muốn dùng ảnh: chép vào wwwroot/images/ rồi thêm "image": "images/ten-anh.jpg".
-  "projects": [
-    {
-      "id": "office-tower",
-      "title": { "en": "High-rise Office Tower", "vi": "Tòa nhà văn phòng cao tầng" },
-      "category": { "en": "Buildings", "vi": "Công trình" },
-      "summary": {
-        "en": "Multidisciplinary Revit model for a high-rise office building, coordinated across architecture, structure and MEP.",
-        "vi": "Mô hình Revit đa bộ môn cho tòa nhà văn phòng cao tầng, phối hợp giữa kiến trúc, kết cấu và MEP."
-      },
-      "description": {
-        "en": "Developed and maintained the federated model from concept to detailed design, ran regular clash detection sessions and tracked every issue until it was resolved.",
-        "vi": "Phát triển và quản lý mô hình tổng hợp từ giai đoạn ý tưởng đến thiết kế chi tiết, kiểm tra xung đột định kỳ và theo dõi từng vấn đề cho đến khi được xử lý."
-      },
-      "highlights": [
-        { "en": "Weekly clash detection and coordination meetings", "vi": "Kiểm tra xung đột và họp phối hợp hằng tuần" },
-        { "en": "Model developed to LOD 350 for detailed design", "vi": "Mô hình đạt LOD 350 cho giai đoạn thiết kế chi tiết" },
-        { "en": "Drawings and schedules generated directly from the model", "vi": "Bản vẽ và bảng thống kê xuất trực tiếp từ mô hình" }
-      ],
-      "tags": [ "Revit", "Navisworks", "ACC", "LOD 350" ],
-      "icon": "layers",
+      "id": "bridal-veil",
+      "image": "https://picsum.photos/seed/bao-wedding-1/1600/1067",
+      "thumb": "https://picsum.photos/seed/bao-wedding-1/900/600",
+      "title": { "en": "The Veil", "vi": "Voan cưới" },
+      "category": { "en": "Wedding", "vi": "Ảnh cưới" },
+      "caption": { "en": "A gentle breeze, a veil in the wind — the calm moment before the ceremony.", "vi": "Một làn gió nhẹ, tà voan bay — khoảnh khắc bình yên trước giờ lễ." },
+      "location": { "en": "Ninh Binh", "vi": "Ninh Bình" },
+      "year": "2024",
       "featured": true
     },
     {
-      "id": "metro-station",
-      "title": { "en": "Underground Metro Station", "vi": "Ga tàu điện ngầm" },
-      "category": { "en": "Infrastructure", "vi": "Hạ tầng" },
-      "summary": {
-        "en": "BIM model of an underground station, covering structure and MEP services and their interfaces with the tunnels.",
-        "vi": "Mô hình BIM cho ga ngầm, bao gồm kết cấu, hệ thống MEP và giao diện với đường hầm."
-      },
-      "description": {
-        "en": "Modelled the station box, platforms and building services, and coordinated interfaces with the tunnel and civil packages through shared IFC models.",
-        "vi": "Dựng mô hình hộp ga, sân ga và hệ thống kỹ thuật, đồng thời phối hợp giao diện với gói thầu đường hầm và hạ tầng thông qua mô hình IFC dùng chung."
-      },
-      "highlights": [
-        { "en": "Interface coordination with tunnel and civil models", "vi": "Phối hợp giao diện với mô hình đường hầm và hạ tầng" },
-        { "en": "Model exchange through IFC for openBIM workflows", "vi": "Trao đổi mô hình qua IFC theo quy trình openBIM" }
-      ],
-      "tags": [ "Revit", "Navisworks", "IFC", "Infrastructure" ],
-      "icon": "map",
+      "id": "old-quarter",
+      "image": "https://picsum.photos/seed/bao-street-1/1200/1500",
+      "thumb": "https://picsum.photos/seed/bao-street-1/800/1000",
+      "title": { "en": "Old Quarter", "vi": "Phố cổ" },
+      "category": { "en": "Street", "vi": "Đời thường" },
+      "caption": { "en": "Afternoon life unfolding down a narrow lane.", "vi": "Nhịp sống buổi chiều trôi qua trong một con ngõ nhỏ." },
+      "location": { "en": "Hanoi", "vi": "Hà Nội" },
+      "year": "2023"
+    },
+    {
+      "id": "misty-peak",
+      "image": "https://picsum.photos/seed/bao-landscape-1/1600/1067",
+      "thumb": "https://picsum.photos/seed/bao-landscape-1/900/600",
+      "title": { "en": "Above the Clouds", "vi": "Trên tầng mây" },
+      "category": { "en": "Landscape", "vi": "Phong cảnh" },
+      "caption": { "en": "First light spilling over a sea of mist in the northern mountains.", "vi": "Ánh bình minh tràn trên biển mây nơi núi rừng phía Bắc." },
+      "location": { "en": "Ha Giang", "vi": "Hà Giang" },
+      "year": "2023",
       "featured": true
     },
     {
-      "id": "hospital-mep",
-      "title": { "en": "Hospital MEP Coordination", "vi": "Phối hợp MEP bệnh viện" },
-      "category": { "en": "Buildings", "vi": "Công trình" },
-      "summary": {
-        "en": "Dense MEP coordination for a healthcare facility where ceiling space was extremely limited.",
-        "vi": "Phối hợp hệ thống MEP dày đặc cho công trình y tế có không gian trần rất hạn chế."
-      },
-      "highlights": [
-        { "en": "Clash-free ceiling zones agreed with all disciplines", "vi": "Thống nhất khoảng trần không xung đột với tất cả bộ môn" },
-        { "en": "Coordinated sections issued for site installation", "vi": "Phát hành mặt cắt phối hợp phục vụ lắp đặt tại công trường" }
-      ],
-      "tags": [ "Revit MEP", "Navisworks", "Clash Detection" ],
-      "icon": "crosshair"
+      "id": "studio-light",
+      "image": "https://picsum.photos/seed/bao-portrait-2/1200/1500",
+      "thumb": "https://picsum.photos/seed/bao-portrait-2/800/1000",
+      "title": { "en": "Studio Series", "vi": "Bộ ảnh studio" },
+      "category": { "en": "Portrait", "vi": "Chân dung" },
+      "caption": { "en": "Controlled light, soft shadows — a studio headshot session.", "vi": "Ánh sáng chủ động, bóng đổ mềm mại — buổi chụp chân dung trong studio." },
+      "location": { "en": "Studio", "vi": "Studio" },
+      "year": "2024"
     },
     {
-      "id": "dynamo-toolkit",
-      "title": { "en": "Dynamo Automation Toolkit", "vi": "Bộ công cụ tự động hóa Dynamo" },
-      "category": { "en": "Automation", "vi": "Tự động hóa" },
-      "summary": {
-        "en": "Dynamo scripts that automate sheet creation, view naming and parameter checks in Revit.",
-        "vi": "Bộ script Dynamo tự động tạo sheet, đặt tên view và kiểm tra thông số trong Revit."
-      },
-      "description": {
-        "en": "Repetitive documentation tasks used to take hours on every project. These scripts handle them in minutes and keep naming consistent with project standards.",
-        "vi": "Những công việc hồ sơ lặp lại từng tốn hàng giờ ở mỗi dự án. Bộ script này xử lý chúng chỉ trong vài phút và giữ cách đặt tên luôn đúng tiêu chuẩn dự án."
-      },
-      "highlights": [
-        { "en": "Batch-create sheets and views from an Excel list", "vi": "Tạo hàng loạt sheet và view từ danh sách Excel" },
-        { "en": "Automatic parameter checks before every model issue", "vi": "Tự động kiểm tra thông số trước mỗi lần phát hành mô hình" }
-      ],
-      "tags": [ "Dynamo", "Python", "Revit API", "Excel" ],
-      "icon": "cpu",
+      "id": "first-dance",
+      "image": "https://picsum.photos/seed/bao-wedding-2/1200/1500",
+      "thumb": "https://picsum.photos/seed/bao-wedding-2/800/1000",
+      "title": { "en": "First Dance", "vi": "Điệu nhảy đầu tiên" },
+      "category": { "en": "Wedding", "vi": "Ảnh cưới" },
+      "caption": { "en": "Just the two of them, and the whole room holding its breath.", "vi": "Chỉ còn hai người, và cả khán phòng nín thở dõi theo." },
+      "location": { "en": "Hanoi", "vi": "Hà Nội" },
+      "year": "2023"
+    },
+    {
+      "id": "rush-hour",
+      "image": "https://picsum.photos/seed/bao-street-2/1600/1067",
+      "thumb": "https://picsum.photos/seed/bao-street-2/900/600",
+      "title": { "en": "Rush Hour", "vi": "Giờ tan tầm" },
+      "category": { "en": "Street", "vi": "Đời thường" },
+      "caption": { "en": "The blur of a city finding its way home.", "vi": "Nhịp phố nhòa đi khi thành phố trở về nhà." },
+      "location": { "en": "Ho Chi Minh City", "vi": "TP. Hồ Chí Minh" },
+      "year": "2023"
+    },
+    {
+      "id": "rice-terraces",
+      "image": "https://picsum.photos/seed/bao-landscape-2/1600/1067",
+      "thumb": "https://picsum.photos/seed/bao-landscape-2/900/600",
+      "title": { "en": "Golden Terraces", "vi": "Ruộng bậc thang mùa vàng" },
+      "category": { "en": "Landscape", "vi": "Phong cảnh" },
+      "caption": { "en": "Harvest season painting the hills in gold.", "vi": "Mùa gặt nhuộm vàng những triền đồi." },
+      "location": { "en": "Mu Cang Chai", "vi": "Mù Cang Chải" },
+      "year": "2022",
       "featured": true
     },
     {
-      "id": "family-library",
-      "title": { "en": "Revit Family Library", "vi": "Thư viện Family Revit" },
-      "category": { "en": "Automation", "vi": "Tự động hóa" },
-      "summary": {
-        "en": "Parametric, standards-compliant Revit families and templates shared across the team.",
-        "vi": "Thư viện family và template Revit tham số, đúng tiêu chuẩn, dùng chung cho cả nhóm."
-      },
-      "tags": [ "Revit Families", "Templates", "Standards" ],
-      "icon": "package"
+      "id": "quiet-moment",
+      "image": "https://picsum.photos/seed/bao-portrait-3/1200/1500",
+      "thumb": "https://picsum.photos/seed/bao-portrait-3/800/1000",
+      "title": { "en": "Quiet Moment", "vi": "Lặng" },
+      "category": { "en": "Portrait", "vi": "Chân dung" },
+      "caption": { "en": "In between the laughter, a small still moment.", "vi": "Giữa những tiếng cười, một khoảng lặng rất nhỏ." },
+      "location": { "en": "Hoi An", "vi": "Hội An" },
+      "year": "2024"
     },
     {
-      "id": "portfolio",
-      "title": { "en": "This Portfolio Website", "vi": "Website portfolio này" },
-      "category": "Web",
-      "summary": {
-        "en": "A bilingual personal website built with Blazor WebAssembly and deployed automatically to GitHub Pages.",
-        "vi": "Website cá nhân song ngữ, xây dựng bằng Blazor WebAssembly và tự động triển khai lên GitHub Pages."
-      },
-      "description": {
-        "en": "A fast single-page portfolio with dark and light themes and English / Vietnamese content. Everything on the page comes from one JSON file, so it can be updated without touching any code.",
-        "vi": "Portfolio dạng single-page với giao diện sáng/tối và nội dung tiếng Anh / tiếng Việt. Toàn bộ nội dung nằm trong một file JSON nên có thể cập nhật mà không cần sửa code."
-      },
-      "tags": [ "Blazor WebAssembly", "C#", "GitHub Pages" ],
-      "icon": "monitor",
-      "year": "2026",
-      "repoUrl": "https://github.com/hoaibaok19-cmd/BlazorApp1",
-      "demoUrl": "https://hoaibaok19-cmd.github.io/BlazorApp1/"
+      "id": "lantern-night",
+      "image": "https://picsum.photos/seed/bao-travel-1/1200/1500",
+      "thumb": "https://picsum.photos/seed/bao-travel-1/800/1000",
+      "title": { "en": "Lantern Night", "vi": "Đêm hội đèn lồng" },
+      "category": { "en": "Travel", "vi": "Du lịch" },
+      "caption": { "en": "Old town glowing under a thousand paper lanterns.", "vi": "Phố cổ rực sáng dưới hàng nghìn chiếc đèn lồng giấy." },
+      "location": { "en": "Hoi An", "vi": "Hội An" },
+      "year": "2022"
+    },
+    {
+      "id": "coastal-dawn",
+      "image": "https://picsum.photos/seed/bao-travel-2/1600/1067",
+      "thumb": "https://picsum.photos/seed/bao-travel-2/900/600",
+      "title": { "en": "Coastal Dawn", "vi": "Bình minh biển" },
+      "category": { "en": "Travel", "vi": "Du lịch" },
+      "caption": { "en": "Fishing boats heading out as the sky turns pink.", "vi": "Những con thuyền ra khơi khi bầu trời ửng hồng." },
+      "location": { "en": "Phu Yen", "vi": "Phú Yên" },
+      "year": "2022"
     }
   ],
 
   "contact": {
     "text": {
-      "en": "Need help with BIM modelling, coordination or automation — or just want to talk BIM? My inbox is always open.",
-      "vi": "Bạn cần hỗ trợ về dựng mô hình, phối hợp hay tự động hóa BIM — hoặc chỉ muốn trao đổi về BIM? Hãy nhắn cho tôi nhé."
+      "en": "Planning a wedding, a portrait session or a shoot of your own? Tell me the story you want to remember and let's make it.",
+      "vi": "Bạn đang chuẩn bị cho một đám cưới, một buổi chụp chân dung hay một dự án riêng? Hãy kể cho tôi câu chuyện bạn muốn lưu giữ, và cùng nhau thực hiện nhé."
     },
     "formspreeId": "" // Tùy chọn: mã form Formspree. Để trống thì form sẽ mở ứng dụng email của người gửi.
   }

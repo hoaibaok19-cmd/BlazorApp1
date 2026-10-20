@@ -26,7 +26,7 @@
                                     var level = Math.Clamp(skill.Level ?? 0, 0, 100);
                                     <li class="skill-bar">
                                         <div class="skill-bar-top">
-                                            <span class="skill-name">@skill.Name</span>
+                                            <span class="skill-name">@T(skill.Name)</span>
                                             <span class="skill-level">@LevelLabel(level)</span>
                                         </div>
                                         <span class="bar" aria-hidden="true"><span class="bar-fill" style="--level: @(level)%"></span></span>
@@ -40,7 +40,7 @@
                             <ul class="chip-list">
                                 @foreach (var skill in tags)
                                 {
-                                    <li class="chip">@skill.Name</li>
+                                    <li class="chip">@T(skill.Name)</li>
                                 }
                             </ul>
                         }

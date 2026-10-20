@@ -1,11 +1,13 @@
 @inherits SiteComponentBase
 
 <section id="home" class="hero" data-nav-section>
-    <div class="hero-bg" aria-hidden="true">
-        <span class="blob blob-1"></span>
-        <span class="blob blob-2"></span>
-        <span class="blob blob-3"></span>
-        <span class="hero-grid"></span>
+    <div class="hero-media" aria-hidden="true">
+        @if (!string.IsNullOrWhiteSpace(Profile.HeroImage) && !heroFailed)
+        {
+            <img class="hero-photo" src="@Profile.HeroImage" alt="" @onerror="() => heroFailed = true" />
+        }
+        <span class="hero-scrim"></span>
+        <span class="hero-vignette"></span>
     </div>
 
     <div class="container hero-inner">
@@ -16,16 +18,13 @@
             }
 
             <h1 class="hero-title reveal" style="--delay: 80ms">
-                <span class="hero-greeting">@L("hero.greeting")</span>
-                <span class="hero-name"><span class="gradient-text">@Profile.Name</span></span>
+                <span class="hero-kicker">@L("hero.greeting")</span>
+                <span class="hero-name">@Profile.Name</span>
             </h1>
 
             @if (Profile.Roles.Count > 0)
             {
-                <p class="hero-role reveal" style="--delay: 160ms">
-                    <span class="prompt" aria-hidden="true">&gt;</span>
-                    <TypingText Words="@Profile.Roles.Select(T).ToList()" Animate="@(!Site.ReducedMotion)" />
-                </p>
+                <p class="hero-role reveal" style="--delay: 160ms">@string.Join("  ·  ", Profile.Roles.Select(T))</p>
             }
 
             @if (!Profile.Tagline.IsEmpty)
@@ -34,14 +33,14 @@
             }
 
             <div class="hero-actions reveal" style="--delay: 320ms">
-                @if (Site.HasSection("projects"))
+                @if (Site.HasSection("gallery"))
                 {
-                    <SectionLink Target="projects" class="btn btn-primary">
-                        @L("hero.viewWork") <Icon Name="arrow-right" Size="18" />
+                    <SectionLink Target="gallery" class="btn btn-primary">
+                        <Icon Name="camera" Size="18" /> @L("hero.viewWork")
                     </SectionLink>
                 }
                 <SectionLink Target="contact" class="btn btn-ghost">
-                    <Icon Name="message-circle" Size="18" /> @L("hero.contact")
+                    <Icon Name="mail" Size="18" /> @L("hero.contact")
                 </SectionLink>
                 @if (!Profile.Cv.IsEmpty)
                 {
@@ -55,25 +54,6 @@
                 <SocialLinks Class="hero-socials" />
             </div>
         </div>
-
-        <div class="hero-visual reveal" style="--delay: 200ms">
-            <div class="avatar-ring">
-                <div class="avatar">
-                    @if (!string.IsNullOrWhiteSpace(Profile.Avatar) && !avatarFailed)
-                    {
-                        <img src="@Profile.Avatar" alt="@Profile.Name" width="460" height="460" @onerror="() => avatarFailed = true" />
-                    }
-                    else
-                    {
-                        <span class="avatar-initials" aria-hidden="true">@Profile.Initials</span>
-                    }
-                </div>
-            </div>
-            @foreach (var (badge, index) in Profile.HeroBadges.Take(4).Select((b, i) => (b, i)))
-            {
-                <span class="floating-badge floating-badge-@(index + 1)" aria-hidden="true">@badge</span>
-            }
-        </div>
     </div>
 
     @if (Site.NavSections.Count > 0)
@@ -85,7 +65,7 @@
 </section>
 
 @code {
-    private bool avatarFailed;
+    private bool heroFailed;
 
     private Profile Profile => Data.Profile;
 }

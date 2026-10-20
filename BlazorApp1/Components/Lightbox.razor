@@ -1,0 +1,121 @@
+@inherits SiteComponentBase
+@implements IDisposable
+@inject IJSRuntime JS
+
+<dialog class="lightbox" @ref="dialog" aria-label="@L("gallery.viewer")" @onkeydown="OnKeyDownAsync">
+    @if (Current is not null)
+    {
+        <button type="button" class="icon-btn lightbox-close" @onclick="CloseAsync" aria-label="@L("gallery.close")" title="@L("gallery.close")">
+            <Icon Name="x" Size="20" />
+        </button>
+
+        @if (Photos.Count > 1)
+        {
+            <button type="button" class="icon-btn lightbox-nav lightbox-prev" @onclick="PrevAsync" aria-label="@L("gallery.prev")" title="@L("gallery.prev")">
+                <Icon Name="chevron-left" Size="26" />
+            </button>
+            <button type="button" class="icon-btn lightbox-nav lightbox-next" @onclick="NextAsync" aria-label="@L("gallery.next")" title="@L("gallery.next")">
+                <Icon Name="chevron-right" Size="26" />
+            </button>
+        }
+
+        <figure class="lightbox-figure">
+            <div class="lightbox-stage">
+                <img class="lightbox-image" src="@Current.Image" alt="@T(Current.Title)" />
+            </div>
+            <figcaption class="lightbox-caption">
+                <div class="lightbox-caption-text">
+                    @if (!Current.Title.IsEmpty)
+                    {
+                        <h3 class="lightbox-title">@T(Current.Title)</h3>
+                    }
+                    <p class="lightbox-meta">
+                        @if (!Current.Category.IsEmpty)
+                        {
+                            <span class="lightbox-tag">@T(Current.Category)</span>
+                        }
+                        @if (!Current.Location.IsEmpty)
+                        {
+                            <span class="lightbox-where"><Icon Name="map-pin" Size="14" /> @T(Current.Location)</span>
+                        }
+                        @if (!string.IsNullOrWhiteSpace(Current.Year))
+                        {
+                            <span class="lightbox-year">@Current.Year</span>
+                        }
+                    </p>
+                    @if (!Current.Caption.IsEmpty)
+                    {
+                        <p class="lightbox-text">@T(Current.Caption)</p>
+                    }
+                </div>
+                @if (Photos.Count > 1)
+                {
+                    <span class="lightbox-counter">@(Index + 1) / @Photos.Count</span>
+                }
+            </figcaption>
+        </figure>
+    }
+</dialog>
+
+@code {
+    [Parameter] public IReadOnlyList<Photo> Photos { get; set; } = Array.Empty<Photo>();
+    [Parameter] public int? Index { get; set; }
+    [Parameter] public EventCallback OnClose { get; set; }
+    [Parameter] public EventCallback<int> OnNavigate { get; set; }
+
+    private ElementReference dialog;
+    private DotNetObjectReference<Lightbox>? selfRef;
+    private bool isOpen;
+
+    private Photo? Current => Index is int i && i >= 0 && i < Photos.Count ? Photos[i] : null;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            selfRef = DotNetObjectReference.Create(this);
+            await JS.InvokeVoidAsync("portfolio.initDialog", dialog, selfRef);
+        }
+
+        var shouldOpen = Current is not null;
+        if (shouldOpen != isOpen)
+        {
+            isOpen = shouldOpen;
+            await JS.InvokeVoidAsync(shouldOpen ? "portfolio.showDialog" : "portfolio.closeDialog", dialog);
+        }
+    }
+
+    private Task PrevAsync() => GoAsync(-1);
+
+    private Task NextAsync() => GoAsync(1);
+
+    private Task GoAsync(int delta)
+    {
+        if (Index is not int i || Photos.Count < 2)
+        {
+            return Task.CompletedTask;
+        }
+
+        var next = (i + delta + Photos.Count) % Photos.Count;
+        return OnNavigate.InvokeAsync(next);
+    }
+
+    private Task OnKeyDownAsync(KeyboardEventArgs e) => e.Key switch
+    {
+        "ArrowLeft" => PrevAsync(),
+        "ArrowRight" => NextAsync(),
+        _ => Task.CompletedTask
+    };
+
+    private Task CloseAsync() => JS.InvokeVoidAsync("portfolio.closeDialog", dialog).AsTask();
+
+    /// <summary>Called by site.js whenever the dialog closes (close button, Esc key or backdrop click).</summary>
+    [JSInvokable]
+    public Task OnDialogClosed()
+    {
+        isOpen = false;
+        return OnClose.InvokeAsync();
+    }
+
+    public void Dispose() => selfRef?.Dispose();
+}
