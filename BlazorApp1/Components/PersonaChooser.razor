@@ -1,0 +1,56 @@
+@inherits SiteComponentBase
+
+<div class="chooser">
+    <div class="chooser-topbar">
+        <span class="chooser-logo"><span class="chooser-logo-mark">BT</span> Bao Truong</span>
+        <div class="chooser-tools">
+            <button type="button" class="lang-switch" @onclick="Site.ToggleLanguageAsync"
+                    aria-label="@L("lang.switch")" title="@L("lang.switch")">
+                <span class="@(Site.Language == "en" ? "is-active" : null)">EN</span>
+                <span class="@(Site.Language == "vi" ? "is-active" : null)">VI</span>
+            </button>
+            <button type="button" class="icon-btn" @onclick="Site.ToggleThemeAsync"
+                    aria-label="@ThemeLabel" title="@ThemeLabel">
+                <Icon Name="@(Site.Theme == "dark" ? "sun" : "moon")" Size="19" />
+            </button>
+        </div>
+    </div>
+
+    <div class="chooser-inner">
+        <header class="chooser-head reveal is-visible">
+            <h1 class="chooser-title">@L("chooser.title")</h1>
+            <p class="chooser-sub">@L("chooser.subtitle")</p>
+        </header>
+
+        <div class="chooser-grid">
+            @foreach (var persona in SiteState.Personas)
+            {
+                <button type="button" class="chooser-card" data-persona="@persona"
+                        @onclick="() => ChooseAsync(persona)" aria-label="@($"{L($"chooser.{persona}.name")} — {L($"chooser.{persona}.role")}")">
+                    <span class="chooser-card-glow" aria-hidden="true"></span>
+                    <span class="chooser-icon" aria-hidden="true"><Icon Name="@IconFor(persona)" Size="30" StrokeWidth="1.6" /></span>
+                    <span class="chooser-name">@L($"chooser.{persona}.name")</span>
+                    <span class="chooser-role">@L($"chooser.{persona}.role")</span>
+                    <span class="chooser-desc">@L($"chooser.{persona}.desc")</span>
+                    <span class="chooser-enter">@L("chooser.enter") <Icon Name="arrow-right" Size="16" /></span>
+                </button>
+            }
+        </div>
+
+        <p class="chooser-hint">@L("chooser.hint")</p>
+    </div>
+</div>
+
+@code {
+    private static string IconFor(string persona) => persona switch
+    {
+        "bim" => "layers",
+        "trekking" => "mountain",
+        "photography" => "camera",
+        _ => "aperture"
+    };
+
+    private string ThemeLabel => Site.Theme == "dark" ? L("theme.light") : L("theme.dark");
+
+    private Task ChooseAsync(string persona) => Site.SetPersonaAsync(persona);
+}

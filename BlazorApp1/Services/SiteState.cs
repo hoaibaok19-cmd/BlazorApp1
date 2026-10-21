@@ -10,16 +10,21 @@ namespace BlazorApp1.Services;
 public sealed class SiteState(HttpClient http, IJSRuntime js)
 {
     public static readonly IReadOnlyList<string> Languages = ["en", "vi"];
+    public static readonly IReadOnlyList<string> Personas = ["bim", "trekking", "photography"];
 
     public string Language { get; private set; } = Languages[0];
     public string Theme { get; private set; } = "dark";
     public bool ReducedMotion { get; private set; }
+
+    /// <summary>The selected persona ("bim", "trekking", "photography") or <c>null</c> to show the chooser.</summary>
+    public string? Persona { get; private set; }
+
     public PortfolioData Data { get; private set; } = new();
     public string? LoadError { get; private set; }
     public string? ActiveSection { get; private set; }
     public IReadOnlyList<string> NavSections { get; private set; } = [];
 
-    /// <summary>Raised when the language or theme changes; the whole UI re-renders.</summary>
+    /// <summary>Raised when the language, theme or persona changes; the whole UI re-renders.</summary>
     public event Action? Changed;
 
     /// <summary>Raised when the section in view changes; only the navigation re-renders.</summary>
@@ -33,16 +38,74 @@ public sealed class SiteState(HttpClient http, IJSRuntime js)
             Language = Languages.Contains(preferences.Language) ? preferences.Language : Languages[0];
             Theme = preferences.Theme == "light" ? "light" : "dark";
             ReducedMotion = preferences.ReducedMotion;
+            if (Personas.Contains(preferences.Persona))
+            {
+                Persona = preferences.Persona;
+            }
         }
         catch (JSException)
         {
             // site.js is missing: keep the defaults.
         }
 
+        if (Persona is not null)
+        {
+            await LoadDataAsync(Persona);
+            try
+            {
+                await js.InvokeVoidAsync("portfolio.setPersona", Persona);
+            }
+            catch (JSException)
+            {
+            }
+        }
+    }
+
+    /// <summary>Selects a persona, loads its content and themes the page. Pass <c>null</c> to return to the chooser.</summary>
+    public async Task SetPersonaAsync(string? persona)
+    {
+        if (persona is not null && !Personas.Contains(persona))
+        {
+            return;
+        }
+
+        if (persona == Persona)
+        {
+            return;
+        }
+
+        Persona = persona;
+        ActiveSection = null;
+
+        if (persona is null)
+        {
+            Data = new();
+            LoadError = null;
+            NavSections = [];
+        }
+        else
+        {
+            await LoadDataAsync(persona);
+        }
+
+        try
+        {
+            await js.InvokeVoidAsync("portfolio.setPersona", persona);
+        }
+        catch (JSException)
+        {
+        }
+
+        Changed?.Invoke();
+    }
+
+    private async Task LoadDataAsync(string persona)
+    {
+        LoadError = null;
         try
         {
             // Always revalidate so edits to the JSON show up right after a deploy (GitHub Pages caches files for 10 minutes).
-            using var request = new HttpRequestMessage(HttpMethod.Get, "data/portfolio.json");
+            using var request = new HttpRequestMessage(HttpMethod.Get, $"data/portfolio.{persona}.json");
             request.SetBrowserRequestCache(BrowserRequestCache.NoCache);
             using var response = await http.SendAsync(request);
             response.EnsureSuccessStatusCode();
@@ -50,6 +113,7 @@ public sealed class SiteState(HttpClient http, IJSRuntime js)
         }
         catch (Exception ex) when (ex is HttpRequestException or JsonException or NotSupportedException)
         {
+            Data = new();
             LoadError = ex.Message;
         }
 
@@ -74,7 +138,7 @@ public sealed class SiteState(HttpClient http, IJSRuntime js)
 
     public string T(LocalizedText? text) => text?.Get(Language) ?? string.Empty;
 
-    public string L(string key) => UiText.Get(key, Language);
+    public string L(string key) => UiText.Get(key, Language, Persona);
 
     public async Task SetLanguageAsync(string language)
     {
@@ -112,6 +176,7 @@ public sealed class SiteState(HttpClient http, IJSRuntime js)
     private static List<string> BuildNavSections(PortfolioData data)
     {
         var sections = new List<string>();
+        if (data.Projects.Count > 0) sections.Add("projects");
         if (data.Gallery.Count > 0) sections.Add("gallery");
         if (data.About.Paragraphs.Count > 0 || data.About.Facts.Count > 0 || data.About.Stats.Count > 0) sections.Add("about");
         if (data.SkillGroups.Count > 0 || data.Toolbox.Count > 0) sections.Add("skills");
@@ -124,6 +189,7 @@ public sealed class SiteState(HttpClient http, IJSRuntime js)
     {
         public string Language { get; set; } = "en";
         public string Theme { get; set; } = "dark";
+        public string Persona { get; set; } = "";
         public bool ReducedMotion { get; set; }
     }
 }

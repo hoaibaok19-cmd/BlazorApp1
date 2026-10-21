@@ -7,6 +7,10 @@
 
 <HeroSection />
 
+@if (Site.HasSection("projects"))
+{
+    <ProjectsSection />
+}
 @if (Site.HasSection("gallery"))
 {
     <GallerySection />

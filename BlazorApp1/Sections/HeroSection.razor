@@ -33,10 +33,10 @@
             }
 
             <div class="hero-actions reveal" style="--delay: 320ms">
-                @if (Site.HasSection("gallery"))
+                @if (ShowcaseSection is not null)
                 {
-                    <SectionLink Target="gallery" class="btn btn-primary">
-                        <Icon Name="camera" Size="18" /> @L("hero.viewWork")
+                    <SectionLink Target="@ShowcaseSection" class="btn btn-primary">
+                        <Icon Name="@ShowcaseIcon" Size="18" /> @L("hero.viewWork")
                     </SectionLink>
                 }
                 <SectionLink Target="contact" class="btn btn-ghost">
@@ -68,4 +68,8 @@
     private bool heroFailed;
 
     private Profile Profile => Data.Profile;
+
+    private string? ShowcaseSection => Site.HasSection("projects") ? "projects" : Site.HasSection("gallery") ? "gallery" : null;
+
+    private string ShowcaseIcon => Site.HasSection("projects") ? "layers" : "camera";
 }

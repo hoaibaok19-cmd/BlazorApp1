@@ -44,6 +44,11 @@
     --grid-line: rgb(255 255 255 / .05);
     --scrollbar: #2a2620;
 
+    --cover-l1: 20%;
+    --cover-l2: 11%;
+    --cover-icon-l: 82%;
+    --cover-glass: rgb(255 255 255 / .07);
+
     --radius-sm: 10px;
     --radius: 16px;
     --radius-lg: 22px;
@@ -81,7 +86,137 @@
     --grid-line: rgb(40 33 24 / .05);
     --scrollbar: #cfc6b8;
 
+    --cover-l1: 90%;
+    --cover-l2: 83%;
+    --cover-icon-l: 42%;
+    --cover-glass: rgb(255 255 255 / .55);
+
     color-scheme: light;
+}
+
+/* ==========================================================================
+   Persona themes — accent, fonts and ambience change per persona.
+   Structural neutrals (radius, spacing…) are inherited from :root.
+   ========================================================================== */
+
+/* ---- BIM: technical blueprint (blue / cyan, Space Grotesk) ---- */
+:root[data-persona="bim"][data-theme="dark"] {
+    --font-display: "Space Grotesk", "Be Vietnam Pro", system-ui, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+    --accent-rgb: 96 165 250;
+    --brand-1: #3b82f6;
+    --brand-2: #22d3ee;
+    --brand-3: #60a5fa;
+    --gradient: linear-gradient(120deg, #3b82f6, #22d3ee);
+    --gradient-text: linear-gradient(120deg, #bfdbfe 0%, #60a5fa 45%, #22d3ee 100%);
+    --gradient-soft: linear-gradient(135deg, rgb(59 130 246 / .18), rgb(34 211 238 / .12));
+
+    --bg: #0a0f1a;
+    --bg-alt: #0d1322;
+    --surface: rgb(120 170 240 / .05);
+    --surface-hover: rgb(120 170 240 / .1);
+    --surface-strong: #111a2c;
+    --border: rgb(150 180 230 / .1);
+    --border-strong: rgb(150 180 230 / .2);
+    --text: #e8eef9;
+    --text-muted: #9fb0cb;
+    --text-faint: #6c7c97;
+    --accent-text: #7cc0ff;
+    --accent-2-text: #5fe3f5;
+    --shadow-glow: 0 12px 34px -12px rgb(59 130 246 / .5);
+    --header-bg: rgb(10 15 26 / .74);
+    --grid-line: rgb(150 180 230 / .06);
+    --scrollbar: #26324a;
+}
+
+:root[data-persona="bim"][data-theme="light"] {
+    --font-display: "Space Grotesk", "Be Vietnam Pro", system-ui, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+    --accent-rgb: 37 99 235;
+    --brand-1: #2563eb;
+    --brand-2: #0891b2;
+    --brand-3: #3b82f6;
+    --gradient: linear-gradient(120deg, #2563eb, #0891b2);
+    --gradient-text: linear-gradient(120deg, #1d4ed8 0%, #2563eb 50%, #0e7490 100%);
+    --gradient-soft: linear-gradient(135deg, rgb(37 99 235 / .12), rgb(8 145 178 / .1));
+
+    --bg: #eef2fb;
+    --bg-alt: #e3e9f6;
+    --surface: rgb(255 255 255 / .82);
+    --surface-hover: #ffffff;
+    --surface-strong: #ffffff;
+    --border: rgb(30 50 90 / .12);
+    --border-strong: rgb(30 50 90 / .2);
+    --text: #10203b;
+    --text-muted: #46566f;
+    --text-faint: #76849a;
+    --accent-text: #1d4ed8;
+    --accent-2-text: #0e7490;
+    --shadow-glow: 0 12px 30px -12px rgb(37 99 235 / .4);
+    --header-bg: rgb(238 242 251 / .84);
+    --grid-line: rgb(30 50 90 / .05);
+    --scrollbar: #c2cce3;
+}
+
+/* ---- Trekking: earthy adventure (forest green / terracotta, Fraunces) ---- */
+:root[data-persona="trekking"][data-theme="dark"] {
+    --font-display: "Fraunces", "Be Vietnam Pro", Georgia, serif;
+
+    --accent-rgb: 140 198 110;
+    --brand-1: #5a8f3c;
+    --brand-2: #cc7a43;
+    --brand-3: #86b06a;
+    --gradient: linear-gradient(120deg, #5a8f3c, #cc7a43);
+    --gradient-text: linear-gradient(120deg, #bfe39a 0%, #8cc66e 45%, #e3a86a 100%);
+    --gradient-soft: linear-gradient(135deg, rgb(90 143 60 / .18), rgb(204 122 67 / .12));
+
+    --bg: #0e130c;
+    --bg-alt: #141a10;
+    --surface: rgb(170 210 140 / .05);
+    --surface-hover: rgb(170 210 140 / .1);
+    --surface-strong: #1a2214;
+    --border: rgb(180 210 150 / .1);
+    --border-strong: rgb(180 210 150 / .2);
+    --text: #eef2e6;
+    --text-muted: #adb79e;
+    --text-faint: #79836a;
+    --accent-text: #a4d884;
+    --accent-2-text: #e3a86a;
+    --shadow-glow: 0 12px 34px -12px rgb(90 143 60 / .55);
+    --header-bg: rgb(14 19 12 / .74);
+    --grid-line: rgb(180 210 150 / .06);
+    --scrollbar: #2e3723;
+}
+
+:root[data-persona="trekking"][data-theme="light"] {
+    --font-display: "Fraunces", "Be Vietnam Pro", Georgia, serif;
+
+    --accent-rgb: 74 112 44;
+    --brand-1: #4a7030;
+    --brand-2: #b4572e;
+    --brand-3: #6f9a4e;
+    --gradient: linear-gradient(120deg, #4a7030, #b4572e);
+    --gradient-text: linear-gradient(120deg, #3c5f27 0%, #4a7030 50%, #9a4a28 100%);
+    --gradient-soft: linear-gradient(135deg, rgb(74 112 44 / .14), rgb(180 87 46 / .1));
+
+    --bg: #f3f5ec;
+    --bg-alt: #e8ecdd;
+    --surface: rgb(255 255 255 / .8);
+    --surface-hover: #ffffff;
+    --surface-strong: #ffffff;
+    --border: rgb(50 60 30 / .12);
+    --border-strong: rgb(50 60 30 / .2);
+    --text: #1c2414;
+    --text-muted: #525a44;
+    --text-faint: #828a70;
+    --accent-text: #3c6020;
+    --accent-2-text: #9a4a28;
+    --shadow-glow: 0 12px 30px -12px rgb(74 112 44 / .4);
+    --header-bg: rgb(243 245 236 / .84);
+    --grid-line: rgb(50 60 30 / .05);
+    --scrollbar: #c7cdb6;
 }
 
 /* ---------- Base ---------- */
@@ -2077,5 +2212,545 @@ html:not([lang="vi"]) .i18n-vi {
         animation-iteration-count: 1 !important;
         transition-duration: .01ms !important;
         transition-delay: 0ms !important;
+    }
+}
+
+/* ==========================================================================
+   Projects (BIM persona) — cards + detail dialog.
+   Covers are themed with the active persona accent tokens.
+   ========================================================================== */
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr));
+    gap: 1.4rem;
+}
+
+.project-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    background: var(--surface);
+}
+
+.project-card:hover,
+.project-card:focus-within {
+    transform: translateY(-6px);
+    border-color: rgb(var(--accent-rgb) / .45);
+    box-shadow: 0 26px 60px -30px rgb(var(--accent-rgb) / .55);
+}
+
+.project-card:has(.stretched-link:focus-visible) {
+    outline: 2px solid var(--brand-2);
+    outline-offset: 3px;
+}
+
+.project-cover,
+.dialog-cover {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 18% 22%, rgb(var(--accent-rgb) / .5), transparent 55%),
+        radial-gradient(circle at 85% 85%, color-mix(in srgb, var(--brand-2) 55%, transparent), transparent 50%),
+        linear-gradient(135deg, color-mix(in srgb, var(--brand-1) 26%, var(--surface-strong)), var(--surface-strong));
+}
+
+.project-cover {
+    aspect-ratio: 16 / 9;
+}
+
+.dialog-cover {
+    aspect-ratio: 21 / 9;
+}
+
+.project-cover::after,
+.dialog-cover::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgb(255 255 255 / .1) 1px, transparent 1px),
+        linear-gradient(90deg, rgb(255 255 255 / .1) 1px, transparent 1px);
+    background-size: 28px 28px;
+    -webkit-mask-image: linear-gradient(to bottom, #000, transparent 85%);
+    mask-image: linear-gradient(to bottom, #000, transparent 85%);
+    pointer-events: none;
+}
+
+.project-cover img,
+.dialog-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .6s var(--ease);
+}
+
+.project-card:hover .project-cover img {
+    transform: scale(1.05);
+}
+
+.project-cover-art {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+}
+
+.project-cover-art::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 104px;
+    height: 104px;
+    margin: auto;
+    border-radius: 28px;
+    border: 1px solid rgb(255 255 255 / .18);
+    background: var(--cover-glass);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    transform: rotate(-6deg);
+    transition: transform .5s var(--ease);
+}
+
+.dialog-cover .project-cover-art::before {
+    width: 132px;
+    height: 132px;
+    border-radius: 34px;
+}
+
+.project-cover-art .icon {
+    position: relative;
+    color: #fff;
+    filter: drop-shadow(0 8px 22px rgb(var(--accent-rgb) / .55));
+    transition: transform .5s var(--ease);
+}
+
+.project-card:hover .project-cover-art::before {
+    transform: rotate(4deg) scale(1.06);
+}
+
+.project-card:hover .project-cover-art .icon {
+    transform: scale(1.08);
+}
+
+.project-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
+    padding: .28rem .7rem;
+    border-radius: 999px;
+    border: 1px solid rgb(255 255 255 / .22);
+    background: rgb(5 8 18 / .45);
+    color: #fff;
+    font-size: .74rem;
+    font-weight: 700;
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+}
+
+.project-badge .icon {
+    color: #fbbf24;
+    fill: #fbbf24;
+}
+
+.project-body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: .8rem;
+    padding: 1.35rem 1.5rem 1.4rem;
+}
+
+.project-meta {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    font-family: var(--font-mono);
+    font-size: .74rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+}
+
+.dot-separator {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: currentColor;
+    opacity: .6;
+}
+
+.project-title {
+    font-size: 1.2rem;
+}
+
+.stretched-link {
+    text-align: left;
+    line-height: inherit;
+    letter-spacing: inherit;
+}
+
+.stretched-link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.stretched-link:focus-visible {
+    outline: none;
+}
+
+.project-summary {
+    font-size: .95rem;
+    color: var(--text-muted);
+}
+
+.project-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+}
+
+.project-more {
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    font-size: .9rem;
+    font-weight: 600;
+    color: var(--accent-text);
+}
+
+.project-more .icon {
+    transition: transform .3s var(--ease);
+}
+
+.project-card:hover .project-more .icon {
+    transform: translateX(4px);
+}
+
+.project-links {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    gap: .5rem;
+    min-height: 34px;
+}
+
+.project-dialog {
+    width: min(740px, calc(100% - 2rem));
+    max-height: calc(100dvh - 2rem);
+    padding: 0;
+    overflow: auto;
+    overscroll-behavior: contain;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-strong);
+    background: var(--surface-strong);
+    color: var(--text);
+    box-shadow: 0 40px 100px -30px rgb(0 0 0 / .7);
+}
+
+.project-dialog::backdrop {
+    background: rgb(3 6 14 / .65);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+}
+
+.project-dialog[open] {
+    animation: project-dialog-in .35s var(--ease);
+}
+
+@keyframes project-dialog-in {
+    from {
+        opacity: 0;
+        transform: translateY(18px) scale(.98);
+    }
+}
+
+.dialog-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 2;
+    color: #fff;
+    border-color: rgb(255 255 255 / .22);
+    background: rgb(5 8 18 / .4);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+}
+
+.dialog-close:hover {
+    color: #fff;
+    border-color: rgb(255 255 255 / .4);
+}
+
+.dialog-body {
+    padding: 1.75rem 2rem 2rem;
+}
+
+.dialog-title {
+    margin-top: .5rem;
+    font-size: clamp(1.4rem, 1.2rem + 1vw, 1.9rem);
+}
+
+.dialog-text {
+    margin-top: 1rem;
+    color: var(--text-muted);
+}
+
+.dialog-subtitle {
+    margin: 1.75rem 0 .8rem;
+    font-family: var(--font-mono);
+    font-size: .78rem;
+    font-weight: 500;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+}
+
+.dialog-subtitle + .check-list {
+    margin-top: 0;
+}
+
+.dialog-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem;
+    margin-top: 2rem;
+}
+
+/* ==========================================================================
+   Persona chooser (landing page)
+   ========================================================================== */
+
+.chooser {
+    position: relative;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    padding: 1.25rem clamp(1rem, 4vw, 2.5rem) 2.5rem;
+    background: var(--bg);
+    overflow: hidden;
+}
+
+.chooser::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(60% 50% at 12% -5%, rgb(var(--accent-rgb) / .12), transparent 70%),
+        radial-gradient(55% 55% at 95% 105%, rgb(var(--accent-rgb) / .1), transparent 70%);
+    pointer-events: none;
+}
+
+.chooser-topbar {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.chooser-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: .6rem;
+    font-weight: 700;
+    letter-spacing: -.01em;
+}
+
+.chooser-logo-mark {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    background: var(--gradient);
+    color: #fff;
+    font-size: .82rem;
+    font-weight: 700;
+}
+
+.chooser-tools {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.chooser-inner {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(1.75rem, 4vh, 3rem);
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.chooser-head {
+    text-align: center;
+}
+
+.chooser-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 1.4rem + 3vw, 3.4rem);
+    line-height: 1.1;
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.chooser-sub {
+    margin: .85rem auto 0;
+    max-width: 48ch;
+    color: var(--text-muted);
+    font-size: 1.05rem;
+}
+
+.chooser-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    width: 100%;
+}
+
+.chooser-card {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .55rem;
+    text-align: left;
+    padding: 1.9rem 1.75rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    background: var(--surface-strong);
+    cursor: pointer;
+    transition: transform .4s var(--ease), border-color .3s, box-shadow .4s;
+}
+
+.chooser-card:hover,
+.chooser-card:focus-visible {
+    transform: translateY(-8px);
+    border-color: color-mix(in srgb, var(--card-acc) 55%, transparent);
+    box-shadow: 0 30px 70px -36px color-mix(in srgb, var(--card-acc) 80%, transparent);
+    outline: none;
+}
+
+.chooser-card-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(90% 70% at 50% -10%, color-mix(in srgb, var(--card-acc) 22%, transparent), transparent 70%);
+    opacity: .75;
+    pointer-events: none;
+}
+
+.chooser-icon {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 58px;
+    height: 58px;
+    margin-bottom: .4rem;
+    border-radius: 16px;
+    color: #fff;
+    background: linear-gradient(135deg, var(--card-acc), var(--card-acc2));
+    box-shadow: 0 16px 32px -16px color-mix(in srgb, var(--card-acc) 85%, transparent);
+}
+
+.chooser-name {
+    position: relative;
+    font-family: var(--card-font);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -.02em;
+}
+
+.chooser-role {
+    position: relative;
+    font-family: var(--font-mono);
+    font-size: .74rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--card-acc) 72%, var(--text-muted));
+}
+
+.chooser-desc {
+    position: relative;
+    color: var(--text-muted);
+    font-size: .95rem;
+    line-height: 1.6;
+}
+
+.chooser-enter {
+    position: relative;
+    margin-top: .7rem;
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    font-weight: 600;
+    font-size: .92rem;
+    color: var(--text);
+}
+
+.chooser-enter .icon {
+    transition: transform .3s var(--ease);
+}
+
+.chooser-card:hover .chooser-enter .icon,
+.chooser-card:focus-visible .chooser-enter .icon {
+    transform: translateX(4px);
+}
+
+.chooser-hint {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: var(--text-faint);
+    font-size: .88rem;
+}
+
+.chooser-card[data-persona="bim"] {
+    --card-acc: #3b82f6;
+    --card-acc2: #22d3ee;
+    --card-font: "Space Grotesk", "Be Vietnam Pro", system-ui, sans-serif;
+}
+
+.chooser-card[data-persona="trekking"] {
+    --card-acc: #5a8f3c;
+    --card-acc2: #cc7a43;
+    --card-font: "Fraunces", "Be Vietnam Pro", Georgia, serif;
+}
+
+.chooser-card[data-persona="photography"] {
+    --card-acc: #e6b87a;
+    --card-acc2: #d98e6a;
+    --card-font: "Playfair Display", "Be Vietnam Pro", serif;
+}
+
+@media (max-width: 820px) {
+    .chooser-grid {
+        grid-template-columns: 1fr;
+        max-width: 460px;
     }
 }

@@ -4,22 +4,28 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>Bao Truong — Photographer</title>
+    <title>Bao Truong — Portfolio</title>
     <base href="/" />
 
-    <meta name="description" content="Portfolio of Bao Truong — photographer capturing portraits, weddings, street and landscape stories with natural light." />
+    <meta name="description" content="Portfolio of Bao Truong — BIM modeler, trekking guide and photographer. Pick a world to explore." />
     <meta name="author" content="Bao Truong" />
     <meta name="theme-color" content="#070a13" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Bao Truong — Photographer" />
-    <meta property="og:description" content="Photographer telling honest stories through portraits, weddings, street and landscape photography." />
+    <meta property="og:title" content="Bao Truong — Portfolio" />
+    <meta property="og:description" content="Three portfolios in one — BIM, trekking and photography." />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <!-- Apply the saved theme & language before anything is painted (avoids a flash of the wrong theme). -->
+    <!-- Apply the saved theme, language & persona before anything is painted (avoids a flash of the wrong theme). -->
     <script>
         (function () {
-            var root = document.documentElement, theme = null, lang = null;
-            try { theme = localStorage.getItem('portfolio-theme'); lang = localStorage.getItem('portfolio-lang'); } catch (e) { }
+            var root = document.documentElement, theme = null, lang = null, persona = null;
+            var PERSONAS = ['bim', 'trekking', 'photography'];
+            try {
+                theme = localStorage.getItem('portfolio-theme');
+                lang = localStorage.getItem('portfolio-lang');
+                var fromUrl = new URLSearchParams(location.search).get('p');
+                persona = PERSONAS.indexOf(fromUrl) >= 0 ? fromUrl : localStorage.getItem('portfolio-persona');
+            } catch (e) { }
             if (theme !== 'light' && theme !== 'dark') {
                 theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
             }
@@ -29,6 +35,9 @@
             root.setAttribute('data-theme', theme);
             root.style.colorScheme = theme;
             root.lang = lang;
+            if (PERSONAS.indexOf(persona) >= 0) {
+                root.setAttribute('data-persona', persona);
+            }
             var meta = document.querySelector('meta[name="theme-color"]');
             if (meta) { meta.setAttribute('content', theme === 'light' ? '#f6f7fb' : '#070a13'); }
         })();
@@ -36,7 +45,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;0,900;1,500;1,600&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;0,900;1,500;1,600&family=Space+Grotesk:wght@400;500;600;700&display=swap" />
 
     <link rel="preload" id="webassembly" />
     <link rel="stylesheet" href="css/app.css" />

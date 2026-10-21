@@ -87,6 +87,14 @@ public static class IconPaths
         ["chevron-left"] = """<polyline points="15 18 9 12 15 6"/>""",
         ["chevron-right"] = """<polyline points="9 18 15 12 9 6"/>""",
         ["chevron-down"] = """<polyline points="6 9 12 15 18 9"/>""",
+        ["mountain"] = """<path d="M2 20h20L14.5 7l-3.3 5.6-2.2-2.1L2 20z"/>""",
+        ["sunrise"] = """<path d="M17 18a5 5 0 0 0-10 0"/><line x1="12" y1="2" x2="12" y2="9"/><line x1="4.22" y1="10.22" x2="5.64" y2="11.64"/><line x1="1" y1="18" x2="3" y2="18"/><line x1="21" y1="18" x2="23" y2="18"/><line x1="18.36" y1="11.64" x2="19.78" y2="10.22"/><line x1="23" y1="22" x2="1" y2="22"/><polyline points="8 6 12 2 16 6"/>""",
+        ["tree"] = """<path d="M12 2 6 10h3l-4 6h5v6h4v-6h5l-4-6h3z"/>""",
+        ["tent"] = """<path d="M3 20h18L12 4 3 20z"/><line x1="12" y1="9" x2="12" y2="20"/>""",
+        ["wind"] = """<path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/>""",
+        ["thermometer"] = """<path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/>""",
+        ["navigation"] = """<polygon points="3 11 22 2 13 21 11 13 3 11"/>""",
+        ["shield"] = """<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>""",
     };
 
     public static IEnumerable<string> Names => Paths.Keys;

@@ -24,6 +24,10 @@
         </nav>
 
         <div class="nav-tools">
+            <button type="button" class="icon-btn persona-switch" @onclick="() => Site.SetPersonaAsync(null)"
+                    aria-label="@L("persona.switch")" title="@L("persona.switch")">
+                <Icon Name="grid" Size="18" />
+            </button>
             <button type="button" class="lang-switch" @onclick="Site.ToggleLanguageAsync"
                     aria-label="@L("lang.switch")" title="@L("lang.switch")">
                 <span class="@(Site.Language == "en" ? "is-active" : null)">EN</span>

@@ -1,0 +1,287 @@
+// =====================================================================================
+//  NỘI DUNG PORTFOLIO TREKKING — chỉ cần sửa file này, không phải động vào code.
+//  • Mọi đoạn chữ có thể là "chuỗi" (dùng chung) hoặc { "en": "...", "vi": "..." }.
+//  • Xóa hết phần tử của một mục (ví dụ "gallery": []) thì mục đó tự ẩn khỏi trang.
+//  • Các dòng "// TODO" là chỗ bản nháp đang dùng thông tin/ảnh giả định — hãy thay bằng đồ thật.
+//  • ẢNH: chép ảnh của bạn vào wwwroot/images/gallery/ rồi ghi "image": "images/gallery/ten-anh.jpg".
+//    Ảnh mẫu bên dưới lấy từ picsum.photos (ảnh ngẫu nhiên trên mạng) — chỉ để xem bố cục.
+// =====================================================================================
+{
+  "profile": {
+    "name": "Bao Truong", // TODO: đổi thành họ tên đầy đủ có dấu
+    "initials": "BT",
+    "roles": [
+      { "en": "Trekking Guide", "vi": "Hướng dẫn viên trekking" },
+      { "en": "Mountain Leader", "vi": "Trưởng đoàn leo núi" },
+      { "en": "Trip Planner", "vi": "Thiết kế hành trình" }
+    ],
+    "tagline": {
+      "en": "I lead people safely into Vietnam's wild mountains — chasing sunrises above the clouds and the quiet that only the trail can give.",
+      "vi": "Tôi dẫn mọi người đi an toàn vào những dãy núi hoang sơ của Việt Nam — săn bình minh trên biển mây và tìm sự tĩnh lặng mà chỉ những cung đường mới mang lại."
+    },
+    "availability": { "en": "Guiding treks for the 2025 season", "vi": "Nhận dẫn tour mùa 2025" }, // TODO
+    "location": { "en": "Sapa, Vietnam", "vi": "Sa Pa, Việt Nam" }, // TODO: đổi thành vùng của bạn
+    "email": "your.email@example.com", // TODO: email cá nhân
+    "phone": "", // TODO: để trống sẽ ẩn số điện thoại
+    "cv": "", // để trống sẽ ẩn nút Tải CV
+    // TODO: chép ảnh bìa (núi, ngang, đẹp) vào wwwroot/images/ rồi ghi "images/ten-anh.jpg".
+    "heroImage": "https://picsum.photos/seed/bao-trek-hero/1920/1280"
+  },
+
+  "socials": [
+    { "name": "Instagram", "icon": "instagram", "url": "https://instagram.com/your-handle" }, // TODO
+    { "name": "Facebook", "icon": "facebook", "url": "https://facebook.com/your-page" }, // TODO
+    { "name": "Email", "icon": "mail", "url": "mailto:your.email@example.com" } // TODO
+  ],
+
+  "about": {
+    "paragraphs": [
+      {
+        "en": "Xin chào — I'm Bao, a trekking guide from the mountains of northern Vietnam. For the last few years I've spent more nights in a tent than at home, leading hikers up misty ridgelines and down into valleys most maps forget.",
+        "vi": "Xin chào — tôi là Bảo, một hướng dẫn viên trekking đến từ vùng núi phía Bắc Việt Nam. Vài năm qua tôi ngủ trong lều nhiều hơn ở nhà, dẫn những đoàn khách băng qua các sống núi mù sương và xuống những thung lũng mà bản đồ thường bỏ quên."
+      },
+      {
+        "en": "Safety comes first on every trip. I plan each route carefully, read the weather, carry a full first-aid kit and know when to push on and when to turn back. My job is to let you enjoy the mountain while I quietly take care of everything else.",
+        "vi": "An toàn luôn là ưu tiên số một trong mỗi chuyến đi. Tôi lên kế hoạch kỹ cho từng cung đường, theo dõi thời tiết, mang đầy đủ bộ sơ cứu và biết khi nào nên tiếp tục, khi nào nên quay lại. Việc của tôi là để bạn tận hưởng núi rừng, còn mọi thứ còn lại cứ để tôi lo."
+      },
+      {
+        "en": "I also love sharing the culture of the highlands — staying in H'Mong and Dao homestays, eating around a fire and learning a few words in every village we pass. A trek with me is as much about people as it is about peaks.",
+        "vi": "Tôi cũng thích chia sẻ văn hóa vùng cao — nghỉ tại các homestay của người H'Mông, người Dao, quây quần bên bếp lửa và học vài câu tiếng địa phương ở mỗi bản đi qua. Một chuyến trek cùng tôi không chỉ là những đỉnh núi, mà còn là những con người."
+      }
+    ],
+    "facts": [
+      { "icon": "map-pin", "label": { "en": "Based in", "vi": "Sống tại" }, "value": { "en": "Sapa, Vietnam", "vi": "Sa Pa, Việt Nam" } },
+      { "icon": "mountain", "label": { "en": "Favourite range", "vi": "Dãy núi yêu thích" }, "value": { "en": "Hoang Lien Son", "vi": "Hoàng Liên Sơn" } },
+      { "icon": "sunrise", "label": { "en": "Guiding since", "vi": "Dẫn tour từ" }, "value": "2018" }, // TODO
+      { "icon": "globe", "label": { "en": "Languages", "vi": "Ngôn ngữ" }, "value": { "en": "Vietnamese, English", "vi": "Tiếng Việt, Tiếng Anh" } }
+    ],
+    // TODO: thay bằng số liệu thật của bạn
+    "stats": [
+      { "value": 7, "suffix": "", "label": { "en": "Years guiding", "vi": "Năm dẫn tour" } },
+      { "value": 300, "suffix": "+", "label": { "en": "Treks led", "vi": "Chuyến đã dẫn" } },
+      { "value": 12, "suffix": "", "label": { "en": "Summits guided", "vi": "Đỉnh đã chinh phục" } },
+      { "value": 2000, "suffix": "+", "label": { "en": "Trekkers guided", "vi": "Khách đã đồng hành" } }
+    ]
+  },
+
+  // Dịch vụ — bỏ "level" nên các mục hiện dạng thẻ (chip).
+  "skillGroups": [
+    {
+      "title": { "en": "Guided treks", "vi": "Các loại hành trình" },
+      "icon": "mountain",
+      "skills": [
+        { "name": { "en": "Day hikes", "vi": "Đi trong ngày" } },
+        { "name": { "en": "Multi-day treks", "vi": "Trek nhiều ngày" } },
+        { "name": { "en": "Summit expeditions", "vi": "Chinh phục đỉnh cao" } },
+        { "name": { "en": "Cloud-hunting trips", "vi": "Săn mây" } },
+        { "name": { "en": "Custom private routes", "vi": "Cung đường riêng theo yêu cầu" } }
+      ]
+    },
+    {
+      "title": { "en": "Safety & skills", "vi": "An toàn & kỹ năng" },
+      "icon": "shield",
+      "skills": [
+        { "name": { "en": "Wilderness first aid", "vi": "Sơ cứu nơi hoang dã" } },
+        { "name": { "en": "Navigation & map reading", "vi": "Định hướng & đọc bản đồ" } },
+        { "name": { "en": "Risk management", "vi": "Quản lý rủi ro" } },
+        { "name": { "en": "Weather planning", "vi": "Dự báo & kế hoạch thời tiết" } }
+      ]
+    },
+    {
+      "title": { "en": "Local knowledge", "vi": "Hiểu biết bản địa" },
+      "icon": "tent",
+      "skills": [
+        { "name": { "en": "Homestays & camping", "vi": "Homestay & cắm trại" } },
+        { "name": { "en": "Highland culture", "vi": "Văn hóa vùng cao" } },
+        { "name": { "en": "Local cuisine", "vi": "Ẩm thực địa phương" } },
+        { "name": { "en": "Best photo spots", "vi": "Điểm chụp ảnh đẹp" } }
+      ]
+    }
+  ],
+
+  "toolbox": [ "GPS + Maps", "Map & compass", "First-aid kit", "Trekking poles", "Headlamp", "Water filter", "4-season tent", "Satellite messenger", "Down jacket" ], // TODO: liệt kê đồ nghề của bạn
+
+  "experience": [
+    {
+      "title": { "en": "Lead Trekking Guide", "vi": "Hướng dẫn viên chính" },
+      "organization": { "en": "Freelance & local tour operators", "vi": "Tự do & các đơn vị tour địa phương" },
+      "period": { "en": "20XX — Present", "vi": "20XX — Hiện tại" }, // TODO
+      "location": { "en": "Northern Vietnam", "vi": "Miền Bắc Việt Nam" },
+      "description": {
+        "en": "Planning and leading multi-day treks across the Hoang Lien Son range and the northwest highlands, for groups from two to fifteen people.",
+        "vi": "Lên kế hoạch và dẫn các chuyến trek nhiều ngày khắp dãy Hoàng Liên Sơn và vùng cao Tây Bắc, cho các đoàn từ hai đến mười lăm người."
+      },
+      "highlights": [
+        { "en": "Led 300+ treks with a 100% safe-return record.", "vi": "Dẫn hơn 300 chuyến với tỷ lệ trở về an toàn tuyệt đối." },
+        { "en": "Guided summit trips on Fansipan, Pu Ta Leng and Ky Quan San.", "vi": "Dẫn khách chinh phục Fansipan, Pú Ta Leng và Ky Quan San." },
+        { "en": "Built trusted partnerships with porters and homestays in local villages.", "vi": "Xây dựng mối quan hệ tin cậy với đội porter và các homestay trong bản." }
+      ],
+      "tags": [ "Trekking", "Mountain safety", "Trip planning" ]
+    },
+    // TODO: thêm hoặc sửa theo kinh nghiệm thật của bạn
+    {
+      "title": { "en": "Assistant Guide & Porter", "vi": "Phụ dẫn & Porter" },
+      "organization": { "en": "Local trekking team", "vi": "Đội trekking địa phương" },
+      "period": "20XX — 20XX",
+      "location": { "en": "Sapa, Vietnam", "vi": "Sa Pa, Việt Nam" },
+      "description": {
+        "en": "Learned the trade on the trail — carrying loads, setting up camp and supporting lead guides on demanding routes.",
+        "vi": "Học nghề ngay trên những cung đường — vác đồ, dựng trại và hỗ trợ các hướng dẫn viên chính trên những cung khó."
+      },
+      "highlights": [
+        { "en": "Supported winter and monsoon-season expeditions.", "vi": "Hỗ trợ các chuyến đi mùa đông và mùa mưa." }
+      ],
+      "tags": [ "Camp craft", "Logistics" ]
+    }
+  ],
+
+  // TODO: điền chứng chỉ thật nếu có (sơ cứu, trưởng đoàn, cứu hộ...)
+  "education": [
+    {
+      "title": { "en": "Wilderness First Responder", "vi": "Chứng chỉ Sơ cứu nơi hoang dã" },
+      "organization": { "en": "Certification body", "vi": "Đơn vị cấp chứng chỉ" },
+      "period": "20XX",
+      "description": {
+        "en": "Training in emergency care, patient assessment and evacuation for remote outdoor settings.",
+        "vi": "Đào tạo về sơ cứu khẩn cấp, đánh giá nạn nhân và sơ tán trong môi trường ngoài trời hẻo lánh."
+      }
+    },
+    {
+      "title": { "en": "Mountain Leader Training", "vi": "Khóa Trưởng đoàn leo núi" },
+      "organization": { "en": "Training provider", "vi": "Đơn vị đào tạo" },
+      "period": "20XX",
+      "description": {
+        "en": "Navigation, group management and risk assessment in mountainous terrain.",
+        "vi": "Định hướng, quản lý nhóm và đánh giá rủi ro trên địa hình núi cao."
+      }
+    }
+  ],
+
+  // THƯ VIỆN HÀNH TRÌNH — mỗi ảnh một khối. "featured": true sẽ cho ảnh chiếm ô lớn.
+  // "category" (en) được dùng để gom nhóm bộ lọc — giữ nhất quán: Summit / Trail / Camp / Culture.
+  // TODO: thay toàn bộ ảnh mẫu picsum bên dưới bằng ảnh thật trong wwwroot/images/gallery/.
+  "gallery": [
+    {
+      "id": "fansipan-summit",
+      "image": "https://picsum.photos/seed/bao-trek-fansipan/1600/1067",
+      "thumb": "https://picsum.photos/seed/bao-trek-fansipan/900/600",
+      "title": { "en": "Roof of Indochina", "vi": "Nóc nhà Đông Dương" },
+      "category": { "en": "Summit", "vi": "Đỉnh núi" },
+      "caption": { "en": "3,143 m above the sea — the summit of Fansipan at first light.", "vi": "3.143 m so với mực nước biển — đỉnh Fansipan trong ánh bình minh." },
+      "location": { "en": "Fansipan", "vi": "Fansipan" },
+      "year": "2024",
+      "featured": true
+    },
+    {
+      "id": "ta-xua-clouds",
+      "image": "https://picsum.photos/seed/bao-trek-taxua/1600/1067",
+      "thumb": "https://picsum.photos/seed/bao-trek-taxua/900/600",
+      "title": { "en": "Sea of Clouds", "vi": "Biển mây" },
+      "category": { "en": "Summit", "vi": "Đỉnh núi" },
+      "caption": { "en": "Dawn breaking over the famous cloud sea of Ta Xua.", "vi": "Bình minh vỡ òa trên biển mây Tà Xùa trứ danh." },
+      "location": { "en": "Ta Xua", "vi": "Tà Xùa" },
+      "year": "2024"
+    },
+    {
+      "id": "pu-ta-leng",
+      "image": "https://picsum.photos/seed/bao-trek-putaleng/1200/1500",
+      "thumb": "https://picsum.photos/seed/bao-trek-putaleng/800/1000",
+      "title": { "en": "Rhododendron Ridge", "vi": "Rừng đỗ quyên" },
+      "category": { "en": "Summit", "vi": "Đỉnh núi" },
+      "caption": { "en": "Ancient rhododendron forest on the climb up Pu Ta Leng.", "vi": "Rừng đỗ quyên cổ thụ trên đường lên Pú Ta Leng." },
+      "location": { "en": "Pu Ta Leng", "vi": "Pú Ta Leng" },
+      "year": "2023",
+      "featured": true
+    },
+    {
+      "id": "ta-nang-trail",
+      "image": "https://picsum.photos/seed/bao-trek-tanang/1600/1067",
+      "thumb": "https://picsum.photos/seed/bao-trek-tanang/900/600",
+      "title": { "en": "Golden Grasslands", "vi": "Đồi cỏ vàng" },
+      "category": { "en": "Trail", "vi": "Cung đường" },
+      "caption": { "en": "The rolling hills of the Ta Nang – Phan Dung trail.", "vi": "Những triền đồi nhấp nhô trên cung Tà Năng – Phan Dũng." },
+      "location": { "en": "Ta Nang", "vi": "Tà Năng" },
+      "year": "2023"
+    },
+    {
+      "id": "ridge-walk",
+      "image": "https://picsum.photos/seed/bao-trek-ridge/1200/1500",
+      "thumb": "https://picsum.photos/seed/bao-trek-ridge/800/1000",
+      "title": { "en": "On the Ridgeline", "vi": "Trên sống núi" },
+      "category": { "en": "Trail", "vi": "Cung đường" },
+      "caption": { "en": "A narrow ridge path with the valley falling away on both sides.", "vi": "Lối mòn hẹp trên sống núi, hai bên là thung lũng hun hút." },
+      "location": { "en": "Ky Quan San", "vi": "Ky Quan San" },
+      "year": "2024"
+    },
+    {
+      "id": "camp-under-stars",
+      "image": "https://picsum.photos/seed/bao-trek-camp/1600/1067",
+      "thumb": "https://picsum.photos/seed/bao-trek-camp/900/600",
+      "title": { "en": "Camp Under the Stars", "vi": "Lều dưới trời sao" },
+      "category": { "en": "Camp", "vi": "Cắm trại" },
+      "caption": { "en": "Tents glowing beneath a sky thick with stars.", "vi": "Những chiếc lều sáng lên dưới bầu trời dày đặc sao." },
+      "location": { "en": "Lao Than", "vi": "Lảo Thẩn" },
+      "year": "2023",
+      "featured": true
+    },
+    {
+      "id": "morning-fire",
+      "image": "https://picsum.photos/seed/bao-trek-fire/1200/1500",
+      "thumb": "https://picsum.photos/seed/bao-trek-fire/800/1000",
+      "title": { "en": "Morning by the Fire", "vi": "Sớm bên bếp lửa" },
+      "category": { "en": "Camp", "vi": "Cắm trại" },
+      "caption": { "en": "Warming up with tea before breaking camp.", "vi": "Nhấp ngụm trà nóng cho ấm người trước khi nhổ trại." },
+      "location": { "en": "Bach Moc Luong Tu", "vi": "Bạch Mộc Lương Tử" },
+      "year": "2023"
+    },
+    {
+      "id": "homestay-village",
+      "image": "https://picsum.photos/seed/bao-trek-village/1600/1067",
+      "thumb": "https://picsum.photos/seed/bao-trek-village/900/600",
+      "title": { "en": "Highland Village", "vi": "Bản vùng cao" },
+      "category": { "en": "Culture", "vi": "Văn hóa" },
+      "caption": { "en": "A H'Mong hamlet wrapped in afternoon mist.", "vi": "Một bản người H'Mông ẩn trong sương chiều." },
+      "location": { "en": "Y Ty", "vi": "Y Tý" },
+      "year": "2022"
+    },
+    {
+      "id": "terraced-fields",
+      "image": "https://picsum.photos/seed/bao-trek-terrace/1600/1067",
+      "thumb": "https://picsum.photos/seed/bao-trek-terrace/900/600",
+      "title": { "en": "Terraces in the Mist", "vi": "Ruộng bậc thang mờ sương" },
+      "category": { "en": "Culture", "vi": "Văn hóa" },
+      "caption": { "en": "Rice terraces climbing the hillside above the trail.", "vi": "Ruộng bậc thang leo dọc sườn đồi phía trên cung đường." },
+      "location": { "en": "Mu Cang Chai", "vi": "Mù Cang Chải" },
+      "year": "2022",
+      "featured": true
+    },
+    {
+      "id": "river-crossing",
+      "image": "https://picsum.photos/seed/bao-trek-river/1200/1500",
+      "thumb": "https://picsum.photos/seed/bao-trek-river/800/1000",
+      "title": { "en": "The Crossing", "vi": "Vượt suối" },
+      "category": { "en": "Trail", "vi": "Cung đường" },
+      "caption": { "en": "Fording a cold stream deep in the forest.", "vi": "Lội qua con suối lạnh giữa rừng sâu." },
+      "location": { "en": "Bidoup", "vi": "Bidoup" },
+      "year": "2023"
+    },
+    {
+      "id": "summit-sunrise",
+      "image": "https://picsum.photos/seed/bao-trek-sunrise/1600/1067",
+      "thumb": "https://picsum.photos/seed/bao-trek-sunrise/900/600",
+      "title": { "en": "First Light", "vi": "Tia nắng đầu tiên" },
+      "category": { "en": "Summit", "vi": "Đỉnh núi" },
+      "caption": { "en": "The whole group watching the sun rise above the clouds.", "vi": "Cả đoàn cùng ngắm mặt trời lên trên biển mây." },
+      "location": { "en": "Lao Than", "vi": "Lảo Thẩn" },
+      "year": "2024"
+    }
+  ],
+
+  "contact": {
+    "text": {
+      "en": "Dreaming of a summit, a cloud hunt or a quiet multi-day trek? Tell me your dates and fitness level and I'll plan a route that fits you.",
+      "vi": "Bạn đang mơ về một đỉnh núi, một chuyến săn mây hay một hành trình nhiều ngày thật yên tĩnh? Hãy cho tôi biết thời gian và thể lực của bạn, tôi sẽ thiết kế cung đường phù hợp."
+    },
+    "formspreeId": "" // Tùy chọn: mã form Formspree. Để trống thì form sẽ mở ứng dụng email của người gửi.
+  }
+}

@@ -5,11 +5,16 @@
     const root = document.documentElement;
     const THEME_KEY = 'portfolio-theme';
     const LANGUAGE_KEY = 'portfolio-lang';
+    const PERSONA_KEY = 'portfolio-persona';
+    const PERSONAS = ['bim', 'trekking', 'photography'];
     const THEME_COLORS = { dark: '#070a13', light: '#f6f7fb' };
 
     const storage = {
         set(key, value) {
             try { localStorage.setItem(key, value); } catch { /* storage disabled */ }
+        },
+        remove(key) {
+            try { localStorage.removeItem(key); } catch { /* storage disabled */ }
         }
     };
 
@@ -116,9 +121,18 @@
 
     window.portfolio = {
         getPreferences() {
+            let persona = '';
+            try {
+                const fromUrl = new URLSearchParams(location.search).get('p');
+                persona = PERSONAS.includes(fromUrl) ? fromUrl : (localStorage.getItem(PERSONA_KEY) || '');
+            } catch { /* storage disabled */ }
+            if (!PERSONAS.includes(persona)) {
+                persona = '';
+            }
             return {
                 language: root.lang === 'vi' ? 'vi' : 'en',
                 theme: root.dataset.theme === 'light' ? 'light' : 'dark',
+                persona,
                 reducedMotion: reducedMotion()
             };
         },
@@ -128,6 +142,16 @@
             root.style.colorScheme = theme;
             storage.set(THEME_KEY, theme);
             document.querySelector('meta[name="theme-color"]')?.setAttribute('content', THEME_COLORS[theme] ?? THEME_COLORS.dark);
+        },
+
+        setPersona(persona) {
+            if (PERSONAS.includes(persona)) {
+                root.dataset.persona = persona;
+                storage.set(PERSONA_KEY, persona);
+            } else {
+                delete root.dataset.persona;
+                storage.remove(PERSONA_KEY);
+            }
         },
 
         setLanguage(language) {

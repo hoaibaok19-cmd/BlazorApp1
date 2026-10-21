@@ -4,35 +4,42 @@
 @inject IJSRuntime JS
 
 <CascadingValue Value="Site">
-    <div class="scroll-progress" aria-hidden="true"></div>
-    <a class="skip-link" href="#main" @onclick="SkipToContentAsync" @onclick:preventDefault>@Site.L("nav.skip")</a>
+    @if (Site.Persona is null)
+    {
+        <PersonaChooser />
+    }
+    else
+    {
+        <div class="scroll-progress" aria-hidden="true"></div>
+        <a class="skip-link" href="#main" @onclick="SkipToContentAsync" @onclick:preventDefault>@Site.L("nav.skip")</a>
 
-    <NavBar />
+        <NavBar />
 
-    <main id="main" tabindex="-1" @ref="main">
-        @if (Site.LoadError is not null)
-        {
-            <section class="load-error">
-                <div class="container load-error-card">
-                    <span class="icon-badge" aria-hidden="true"><Icon Name="alert-circle" Size="22" /></span>
-                    <h1>@Site.L("error.title")</h1>
-                    <p>@Site.L("error.text")</p>
-                    <pre>@Site.LoadError</pre>
-                    <button type="button" class="btn btn-primary" onclick="location.reload()">@Site.L("error.reload")</button>
-                </div>
-            </section>
-        }
-        else
-        {
-            @Body
-        }
-    </main>
+        <main id="main" tabindex="-1" @ref="main">
+            @if (Site.LoadError is not null)
+            {
+                <section class="load-error">
+                    <div class="container load-error-card">
+                        <span class="icon-badge" aria-hidden="true"><Icon Name="alert-circle" Size="22" /></span>
+                        <h1>@Site.L("error.title")</h1>
+                        <p>@Site.L("error.text")</p>
+                        <pre>@Site.LoadError</pre>
+                        <button type="button" class="btn btn-primary" onclick="location.reload()">@Site.L("error.reload")</button>
+                    </div>
+                </section>
+            }
+            else
+            {
+                @Body
+            }
+        </main>
 
-    <SiteFooter />
+        <SiteFooter />
 
-    <button type="button" class="back-to-top" @onclick="ScrollToTopAsync" aria-label="@Site.L("footer.top")" title="@Site.L("footer.top")">
-        <Icon Name="arrow-up" Size="20" />
-    </button>
+        <button type="button" class="back-to-top" @onclick="ScrollToTopAsync" aria-label="@Site.L("footer.top")" title="@Site.L("footer.top")">
+            <Icon Name="arrow-up" Size="20" />
+        </button>
+    }
 </CascadingValue>
 
 @code {

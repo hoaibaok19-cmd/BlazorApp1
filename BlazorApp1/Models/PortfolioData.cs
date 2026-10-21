@@ -13,6 +13,7 @@ public sealed class PortfolioData
     public List<string> Toolbox { get; set; } = [];
     public List<TimelineEntry> Experience { get; set; } = [];
     public List<TimelineEntry> Education { get; set; } = [];
+    public List<Project> Projects { get; set; } = [];
     public List<Photo> Gallery { get; set; } = [];
     public ContactInfo Contact { get; set; } = new();
 }
@@ -86,6 +87,26 @@ public sealed class TimelineEntry
     public LocalizedText Description { get; set; } = LocalizedText.Empty;
     public List<LocalizedText> Highlights { get; set; } = [];
     public List<string> Tags { get; set; } = [];
+}
+
+public sealed class Project
+{
+    public string Id { get; set; } = string.Empty;
+    public LocalizedText Title { get; set; } = LocalizedText.Empty;
+    public LocalizedText Category { get; set; } = LocalizedText.Empty;
+    public LocalizedText Summary { get; set; } = LocalizedText.Empty;
+    public LocalizedText Description { get; set; } = LocalizedText.Empty;
+    public List<LocalizedText> Highlights { get; set; } = [];
+    public List<string> Tags { get; set; } = [];
+
+    /// <summary>Optional cover image. When empty a generated cover with <see cref="Icon"/> is shown instead.</summary>
+    public string? Image { get; set; }
+
+    public string Icon { get; set; } = "code";
+    public string? Year { get; set; }
+    public string? RepoUrl { get; set; }
+    public string? DemoUrl { get; set; }
+    public bool Featured { get; set; }
 }
 
 public sealed class Photo
